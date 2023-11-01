@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Georgia';
+        }
+
+        h1 {
+            font-family: 'Georgia';
+        }
+
+        h2 {
+            font-family: 'Georgia';
+        }
+
+        p {
+            font-family: 'Georgia';
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="contenidonoticia">
+        <div id="titularlead" style="background-color:#4D0000; padding-top: 30px; padding-left: 30px; padding-right: 30px; padding-bottom: 10px;">
+            <br>
+            <h1 style="font-size: 40px; font-family: 'Georgia';color:rgb(255, 255, 255); line-height: 50px;">{{titular}}</h1>
+            <h2 style="color:rgb(255, 255, 255)">{{bajada}}</h2>
+            <p style="color:rgb(158, 158, 158)">{{fecha}}</p>
+            <p style="color:rgb(255, 255, 255); text-align: right;">Noticia por {{redactor}} {{apellidoPaterno}}</p>
+        </div>
+        <div id="cuerponoticia" style="margin: 30px;">
+
+            
+            <br>
+            <p>{{cuerpo}}</p>
+        </div>
+    </div>
+</body>
+
+</html>

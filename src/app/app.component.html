@@ -1,0 +1,17 @@
+<mat-toolbar color="warn">
+  <img src="../assets/imagotipo horizontal blanco.png" href="app.component.html" style="height: 50px;"/>
+
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+     <button mat-button [matMenuTriggerFor]="menuHomePage">HomePage</button>
+     <button mat-button [matMenuTriggerFor]="menuConfiguracion">Configuracion</button>
+  </mat-toolbar>
+
+  <mat-menu #menuHomePage="matMenu">
+    <button mat-menu-item routerLink="/homepage">HomePage</button>
+  </mat-menu>
+
+  <mat-menu #menuConfiguracion="matMenu">
+    <button mat-menu-item routerLink="/configuracion">Configuracion</button>
+  </mat-menu>
+
+<router-outlet></router-outlet>
