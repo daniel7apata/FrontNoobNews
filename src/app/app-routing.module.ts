@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './component/homepage/homepage.component';
 import { ConfiguracionComponent } from './component/configuracion/configuracion.component';
 import { PublicationComponent } from './component/publication/publication.component';
+import { UsersComponent } from './component/users/users.component';
 //PASO 15: aqui borraremos lo que ya no corresponde
 
 const routes: Routes = [ 
@@ -14,6 +15,9 @@ const routes: Routes = [
   },
   {
     path: 'publicacion/:id', component: PublicationComponent,
+  },
+  {
+    path: 'redactor/:id', component: UsersComponent,
   }
 
 ];

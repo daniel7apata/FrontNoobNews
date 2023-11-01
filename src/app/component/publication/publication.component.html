@@ -32,7 +32,7 @@
             <h1 style="font-size: 40px; font-family: 'Georgia';color:rgb(255, 255, 255); line-height: 50px;">{{titular}}</h1>
             <h2 style="color:rgb(255, 255, 255)">{{bajada}}</h2>
             <p style="color:rgb(158, 158, 158)">{{fecha}}</p>
-            <p style="color:rgb(255, 255, 255); text-align: right;">Noticia por {{redactor}} {{apellidoPaterno}}</p>
+            <p style="color:rgb(255, 255, 255); text-align: right;" [routerLink]="['/redactor', idRedactor]">Noticia por {{redactor}} {{apellidoPaterno}}</p>
         </div>
         <div id="cuerponoticia" style="margin: 30px;">
 

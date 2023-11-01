@@ -34,6 +34,7 @@ export class PublicationComponent implements OnInit{
   objredactor: Users = new Users();
   redactor: string = this.objredactor.nameUser
   apellidoPaterno: string = this.objredactor.fatherSurname
+  idRedactor:number = this.objredactor.idUser
 
   constructor(
     private pS: PublicationService,
@@ -62,6 +63,7 @@ export class PublicationComponent implements OnInit{
         this.fecha=data.datePublication;
         this.redactor=data.user.nameUser;
         this.apellidoPaterno=data.user.fatherSurname;
+        this.idRedactor=data.user.idUser;
       });
     }
    

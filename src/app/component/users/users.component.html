@@ -1,1 +1,94 @@
-<p>users works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="datosPersonales" style="text-align: center; margin-top: 50px; line-height: 20px;">
+        <h1 style="font-size: 30px;">{{nombre}} {{apellidoPaterno}} {{apellidoMaterno}}</h1>
+        <br>
+        <h3>Correo electrónico:</h3>
+        <h2>{{email}}</h2>
+        <h3>Perfil LinkedIn:</h3>
+        <h2>{{perfilLinkedIn}}</h2>
+        <h3>Fecha registro:</h3>
+        <h2>{{fechaRegistro}}</h2>
+        <h3>Universidad:</h3>
+        <h2>{{universidad}}</h2>
+
+    </div>
+
+
+    <div id="infoAdicional" style="margin:60px">
+
+        <h3>Publicaciones</h3>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="titular">
+                <th mat-header-cell *matHeaderCellDef style="color: white;">Titular</th>
+                <td mat-cell *matCellDef="let element" [routerLink]="['/publicacion', element.idPublication]">{{
+                    element.headline }}</td>
+            </ng-container>
+            <ng-container matColumnDef="fecha">
+                <th mat-header-cell *matHeaderCellDef style="color: white;">Fecha</th>
+                <td mat-cell *matCellDef="let element">{{ element.datePublication }}</td>
+            </ng-container>
+            <ng-container matColumnDef="bajada">
+                <th mat-header-cell *matHeaderCellDef style="color: white;">Bajada</th>
+                <td mat-cell *matCellDef="let element">{{ element.lead }}</td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+
+        <br>
+        <br>
+        <h3>Reconocimientos</h3>
+           
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="descripcion">
+                <th mat-header-cell *matHeaderCellDef style="color: white;">Descripcion</th>
+                <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="fecha">
+                <th mat-header-cell *matHeaderCellDef style="color: white;">Fecha</th>
+                <td mat-cell *matCellDef="let element">{{ element.dateAcknowledgment }}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+
+
+
+
+        <br>
+        <br>
+        <h3>Publicaciones externas</h3>
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="exTitular">
+                <th mat-header-cell *matHeaderCellDef style="color: white;">Titular</th>
+                <td mat-cell *matCellDef="let element">{{ element.headline }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="enlace">
+                <th mat-header-cell *matHeaderCellDef style="color: white;">Link</th>
+                <td mat-cell *matCellDef="let element">{{ element.link }}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+
+
+    </div>
+</body>
+
+</html>
