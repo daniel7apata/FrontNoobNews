@@ -69,9 +69,7 @@ export class UsersComponent  implements OnInit{
     });
 
     this.pubS.list().subscribe((data) => {
-      // Filtra los datos para incluir solo aquellos con id igual a 3
       let filteredData = data.filter((publication) => publication.user.idUser === this.id);
-
       this.dataSource = new MatTableDataSource(filteredData);
       this.dataSource.paginator = this.paginator;
     });

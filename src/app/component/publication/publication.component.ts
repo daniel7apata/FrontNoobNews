@@ -35,6 +35,8 @@ export class PublicationComponent implements OnInit{
   redactor: string = this.objredactor.nameUser
   apellidoPaterno: string = this.objredactor.fatherSurname
   idRedactor:number = this.objredactor.idUser
+  urlImagen: string = ""
+  mostrarImagen: boolean = false;
 
   constructor(
     private pS: PublicationService,
@@ -64,6 +66,8 @@ export class PublicationComponent implements OnInit{
         this.redactor=data.user.nameUser;
         this.apellidoPaterno=data.user.fatherSurname;
         this.idRedactor=data.user.idUser;
+        this.urlImagen=data.attachedFile;
+        this.mostrarImagen = this.urlImagen !== "";
       });
     }
    
