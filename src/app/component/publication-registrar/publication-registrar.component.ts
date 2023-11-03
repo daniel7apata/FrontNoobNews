@@ -64,7 +64,7 @@ export class PublicationRegistrarComponent implements OnInit{
         });
       });
 
-      this.router.navigate(['homepage']);
+      this.router.navigate(['inicio']);
     } else {
       this.mensaje = 'Por favor complete todos los campos obligatorios.';
     }

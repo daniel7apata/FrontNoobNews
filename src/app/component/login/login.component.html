@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container" style="text-align: center">
+
+        <br><br>
+        <h2>INICIO DE SESION</h2>
+        <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Usuario</mat-label>
+
+                <input matInput placeholder="Ingrese username" formControlName="username" />
+                <mat-error *ngIf="obtenerControlCampo('username')?.errors?.['required']">
+                    El usuario es obligatorio.
+                </mat-error>
+            </mat-form-field>
+
+            <br><br>
+
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Contraseña</mat-label>
+
+                <input matInput placeholder="Ingrese contraseña" formControlName="password" />
+                <mat-error *ngIf="obtenerControlCampo('password')?.errors?.['required']">
+                    La contraseña es obligatoria
+                </mat-error>
+            </mat-form-field>
+
+            <br>
+            <br>
+
+            <button mat-raised-button color="primary">Aceptar</button>
+            <!--aqui falta que redirija a la principal-->
+
+            <br>
+            <p>{{ mensaje }}</p>
+        </form>
+
+    </div>
+
+
+
+
+</body>
+
+
+</html>

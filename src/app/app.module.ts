@@ -28,6 +28,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { UsersComponent } from './component/users/users.component';
 import { PublicationComponent } from './component/publication/publication.component';
 import { PublicationRegistrarComponent } from './component/publication-registrar/publication-registrar.component';
+import { LoginComponent } from './component/login/login.component';
 
 
 //en declarations agrega todo lo de la nueva entidad y borra los de la antiguas, en imports dejalo asi
@@ -50,6 +51,7 @@ import { PublicationRegistrarComponent } from './component/publication-registrar
     UsersComponent,
     PublicationComponent,
     PublicationRegistrarComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
