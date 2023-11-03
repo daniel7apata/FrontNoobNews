@@ -32,17 +32,6 @@ import { LoginComponent } from './component/login/login.component';
 import { LatoolbarComponent } from './component/latoolbar/latoolbar.component';
 
 
-//en declarations agrega todo lo de la nueva entidad y borra los de la antiguas, en imports dejalo asi
-
-//PRESTA ATENCION,CAMBIA nombre_entidad
-//ahora deberás crear los componentes, usa el comando     ng g c component/nombre_entidad --skip-tests
-//PRESTA ATENCION,CAMBIA nombre_entidad
-//ahora deberás crearle componentes internos, uno para listar (notese que es guion normal)        ng g c component/nombre_entidad/entidad-listar --skip-tests
-//PRESTA ATENCION,CAMBIA nombre_entidad
-//y otro para registrar        ng g c component/nombre_entidad/entidad-creaedita --skip-tests
-
-//PASO 7: ahora ve a component/medicine/listar-medicine.component.ts
-
 @NgModule({
   declarations: [
     AppComponent,

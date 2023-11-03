@@ -5,20 +5,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
 </head>
+<body style="background-color: #8A0101;">
+    <div id= "solorelleno" style="height: 40px;"></div>
+    <div class="container" style="background-color: white; width:500px; border-radius: 20px; padding-bottom: 50px; padding-top: 3%; box-shadow: 10px 10px 20px black;">
 
-<body>
-    <div class="container" style="text-align: center">
-
-        <br><br>
-        <h2>INICIO DE SESION</h2>
+        <br>
+        <img src="https://i.ibb.co/yF695hk/imagotipo-horizontal-negro.png" style="width: 90%;">
+        <br><br><br>
+        <div id="alineadosAlCentro" style="text-align: center">
+        <h2 style="font-family:'Franklin Gothic Heavy'; font-size: 30px; color:black">INICIO DE SESIÓN</h2>
+        <br>
         <form [formGroup]="form" (submit)="aceptar()" class="example-form">
 
             <br>
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" style="width: 80%; border: 2px solid">
                 <mat-label>Usuario</mat-label>
 
-                <input matInput placeholder="Ingrese username" formControlName="username" />
+                <input matInput placeholder="Ingrese username" formControlName="username"/>
                 <mat-error *ngIf="obtenerControlCampo('username')?.errors?.['required']">
                     El usuario es obligatorio.
                 </mat-error>
@@ -27,7 +32,7 @@
             <br><br>
 
 
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" style="width: 80%; border: 2px solid">
                 <mat-label>Contraseña</mat-label>
 
                 <input matInput placeholder="Ingrese contraseña" formControlName="password" />
@@ -39,12 +44,13 @@
             <br>
             <br>
 
-            <button mat-raised-button color="primary">Aceptar</button>
+            <button mat-raised-button color="warn">Aceptar</button>
             <!--aqui falta que redirija a la principal-->
 
             <br>
             <p>{{ mensaje }}</p>
         </form>
+    </div>
 
     </div>
 
