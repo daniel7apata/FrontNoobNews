@@ -29,6 +29,7 @@ import { UsersComponent } from './component/users/users.component';
 import { PublicationComponent } from './component/publication/publication.component';
 import { PublicationRegistrarComponent } from './component/publication-registrar/publication-registrar.component';
 import { LoginComponent } from './component/login/login.component';
+import { LatoolbarComponent } from './component/latoolbar/latoolbar.component';
 
 
 //en declarations agrega todo lo de la nueva entidad y borra los de la antiguas, en imports dejalo asi
@@ -52,6 +53,7 @@ import { LoginComponent } from './component/login/login.component';
     PublicationComponent,
     PublicationRegistrarComponent,
     LoginComponent,
+    LatoolbarComponent,
   ],
   imports: [
     BrowserModule,

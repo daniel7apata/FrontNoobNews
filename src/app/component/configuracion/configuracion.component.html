@@ -2,62 +2,56 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="container">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body><app-latoolbar></app-latoolbar>
+  <div class="container">
+    <br>
+
+    <!-- aqui cambia el titulo por el que corresponda a tu caso-->
+    <h2 style="text-align: center;">Configuracion</h2>
+
+
+    <form [formGroup]="form" class="example-form">
+
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Idioma</mat-label>
+        <input matInput placeholder="Idioma" formControlName="language" />
+        <mat-error *ngIf="obtenerControlCampo('language')?.errors?.['required']">
+          El idioma es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
       <br>
 
-      <!-- aqui cambia el titulo por el que corresponda a tu caso-->
-      <h2 style="text-align: center;">Configuracion</h2>
+      <mat-form-field class="example-full-width">
+        <mat-label>Estado de las notificaciones</mat-label>
+
+        <input matInput placeholder="Notificaciones" formControlName="notifications" />
+        <mat-error *ngIf="obtenerControlCampo('notifications')?.errors?.['required']">
+          El estado de las notificaciones es obligatorio.
+        </mat-error>
+      </mat-form-field>
 
 
-      <form [formGroup]="form" class="example-form">
+      <br>
+      <button mat-raised-button color="warn" style="margin-right: 20px;">Guardar</button>
+
+      <br>
+      <p>{{ mensaje }}</p>
+    </form>
 
 
-        <mat-form-field class="example-full-width">
-            <mat-label>Idioma</mat-label>
-            <input matInput 
-            placeholder="Idioma" 
-            formControlName="language" />
-            <mat-error
-              *ngIf="obtenerControlCampo('language')?.errors?.['required']"
-            >
-              El idioma es obligatorio.
-            </mat-error>
-          </mat-form-field>
 
-  <br>
+  </div>
+</body>
 
-        <mat-form-field class="example-full-width">
-          <mat-label>Estado de las notificaciones</mat-label>
+<!-- PASO 11: ahora vamos al html principal, el app.component.html -->
 
-          <input matInput 
-          placeholder="Notificaciones" 
-          formControlName="notifications" />
-          <mat-error
-            *ngIf="obtenerControlCampo('notifications')?.errors?.['required']"
-          >
-            El estado de las notificaciones es obligatorio.
-          </mat-error>
-        </mat-form-field>
-
-
-<br>
-        <button mat-raised-button color="warn" style="margin-right: 20px;">Guardar</button>
-       
-         <br>
-        <p>{{ mensaje }}</p>
-      </form>
-      
-
-
-    </div>
-  </body>
-
-    <!-- PASO 11: ahora vamos al html principal, el app.component.html -->
 </html>
-
