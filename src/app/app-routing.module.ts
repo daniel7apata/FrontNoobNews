@@ -26,7 +26,7 @@ const routes: Routes = [
     path: 'registrarPublicacion', component: PublicationRegistrarComponent,
   },
   {
-    path: 'buscar', component: SearchComponent,
+    path: 'buscar/:palabra', component: SearchComponent,
   },
   {
     path: 'login', component: LoginComponent,

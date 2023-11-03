@@ -9,13 +9,12 @@
     
     <div class="container">
       <br>
-      <h2 style="text-align: center;">Resultados de la búsqueda</h2>
+      <h2>Resultados de la búsqueda</h2>
 
-
-      
       <input type="text" [(ngModel)]="searchText" (input)="filter()" placeholder="Buscar">
-
-      <br><br><br>
+      <br>
+      <br>
+      <br>
 
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="titular">
@@ -32,9 +31,16 @@
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-
+        <ng-container matColumnDef="Ver">
+          <th mat-header-cell *matHeaderCellDef style="color: white;">Ver</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-raised-button color="warn" [routerLink]="['/publicacion', element.idPublication]">
+              _
+            </button>
+          </td>
+        </ng-container>
       </table>
-      <mat-paginator [pageSizeOptions]="[10]" showFirstLastButtons></mat-paginator>
+      <mat-paginator [pageSizeOptions]="[7]" showFirstLastButtons></mat-paginator>
     </div>
   </body>
 </html>

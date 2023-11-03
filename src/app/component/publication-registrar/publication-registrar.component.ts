@@ -54,7 +54,7 @@ export class PublicationRegistrarComponent implements OnInit{
       this.publicacion.datePublication= new Date(Date.now());
       this.publicacion.popular=false;
       //aca deberia cambiarse por el id user de quien inició sesion
-      this.usTemp.idUser=1;
+      this.usTemp.idUser=2;
       this.publicacion.user=this.usTemp;
 
 

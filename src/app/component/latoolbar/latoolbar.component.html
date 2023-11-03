@@ -10,11 +10,13 @@
    <p>&nbsp;&nbsp;</p>
    <button mat-button routerLink="/login">CERRAR SESIÓN</button>
    
-   <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-   <form [formGroup]="form" (submit)="aceptar()" class="example-form">
-      <mat-form-field class="example-full-width" style="width: 80%; height: 70px; margin-top: 20px;">
-         <input matInput placeholder="Buscar" formControlName="lead" />
-      </mat-form-field>
-   </form>
+   <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+
+   <div id= "buscar" style="position: absolute; right: 20px;">
+   <input type="text" [(ngModel)]="palabra" placeholder="Buscar">
+   <button mat-raised-button color="warn" [routerLink]="['/buscar', palabra]" style="width: 10px; height: 50px; background-color: #8A0101; border-radius: 30px;">
+      <img src="https://i.ibb.co/rv5fd6z/buscarbtn.png" width="40px">
+      </button>
+   </div>
 
 </mat-toolbar>

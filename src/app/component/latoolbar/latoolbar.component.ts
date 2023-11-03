@@ -19,6 +19,8 @@ import * as moment from 'moment';
 export class LatoolbarComponent implements OnInit{
 
   form: FormGroup = new FormGroup({});
+  palabra:string = '';
+
 
   constructor(
     private router: Router,
@@ -30,15 +32,13 @@ export class LatoolbarComponent implements OnInit{
       busqueda: ['']
     });
   }
-  aceptar(): void {
-    this.router.navigate(['buscar']);
-  }
   
   obtenerControlCampo(nombreCampo: string): AbstractControl {
     const control = this.form.get(nombreCampo);
     if (!control) {
       throw new Error(`Control no encontrado para el campo ${nombreCampo}`);
     }
+    this.palabra=this.form.value.word;
     return control;
   }
 }
