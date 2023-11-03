@@ -30,6 +30,7 @@ import { PublicationComponent } from './component/publication/publication.compon
 import { PublicationRegistrarComponent } from './component/publication-registrar/publication-registrar.component';
 import { LoginComponent } from './component/login/login.component';
 import { LatoolbarComponent } from './component/latoolbar/latoolbar.component';
+import { SearchComponent } from './component/search/search.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { LatoolbarComponent } from './component/latoolbar/latoolbar.component';
     PublicationRegistrarComponent,
     LoginComponent,
     LatoolbarComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

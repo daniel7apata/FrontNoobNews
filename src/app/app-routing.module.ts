@@ -6,6 +6,7 @@ import { PublicationComponent } from './component/publication/publication.compon
 import { UsersComponent } from './component/users/users.component';
 import { PublicationRegistrarComponent } from './component/publication-registrar/publication-registrar.component';
 import { LoginComponent } from './component/login/login.component';
+import { SearchComponent } from './component/search/search.component';
 //PASO 15: aqui borraremos lo que ya no corresponde
 
 const routes: Routes = [
@@ -23,6 +24,9 @@ const routes: Routes = [
   },
   {
     path: 'registrarPublicacion', component: PublicationRegistrarComponent,
+  },
+  {
+    path: 'buscar', component: SearchComponent,
   },
   {
     path: 'login', component: LoginComponent,

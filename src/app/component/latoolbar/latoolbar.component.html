@@ -9,5 +9,12 @@
    <button mat-button routerLink="/configuracion">CONFIGURACIÓN</button>
    <p>&nbsp;&nbsp;</p>
    <button mat-button routerLink="/login">CERRAR SESIÓN</button>
+   
+   <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+   <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+      <mat-form-field class="example-full-width" style="width: 80%; height: 70px; margin-top: 20px;">
+         <input matInput placeholder="Buscar" formControlName="lead" />
+      </mat-form-field>
+   </form>
 
 </mat-toolbar>
