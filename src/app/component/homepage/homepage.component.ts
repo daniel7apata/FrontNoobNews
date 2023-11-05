@@ -3,7 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { Publication } from 'src/app/model/publication';
 import { PublicationService } from 'src/app/service/publication.service';
-
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -19,6 +19,8 @@ pub3:Publication = new Publication();
 id1:number = 0;
 id2:number = 0;
 id3:number = 0;
+
+
   
 //todo esto copialo, cambia Medicine por tu entidad
 dataSource: MatTableDataSource<Publication> = new MatTableDataSource();
@@ -32,8 +34,11 @@ displayedColumns: string[] = [
 
 slides: any[] = new Array(3).fill({id: -1, src: '', title: '', subtitle: ''});
 //aca debes referenciar al EntidadService de tu entidad
-constructor(private pubS: PublicationService) {}
+constructor(
+  private pubS: PublicationService,
+  private route: ActivatedRoute) {}
 ngOnInit(): void {
+
   this.pubS.list().subscribe((data) => {
     this.dataSource = new MatTableDataSource(data);
     this.dataSource.paginator = this.paginator;
@@ -48,7 +53,6 @@ ngOnInit(): void {
     this.id2 = this.dataSource.data.length - 1;
     this.id3 = this.dataSource.data.length - 2;
   });
-
 
 
 

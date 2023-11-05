@@ -7,7 +7,7 @@ import {
   FormBuilder,
   AbstractControl,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import * as moment from 'moment';
 
 
@@ -21,13 +21,19 @@ export class LatoolbarComponent implements OnInit{
   form: FormGroup = new FormGroup({});
   palabra:string = '';
 
+  idconfig: number = 0;
 
   constructor(
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute
   ) {}
   
   ngOnInit(): void {
+    this.route.params.subscribe((data: Params) => {
+      this.idconfig = data['logued'];
+    });
+
     this.form = this.formBuilder.group({
       busqueda: ['']
     });

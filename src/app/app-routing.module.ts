@@ -11,10 +11,10 @@ import { SearchComponent } from './component/search/search.component';
 
 const routes: Routes = [
   {
-    path: 'inicio', component: HomepageComponent,
+    path: 'inicio/:logued', component: HomepageComponent,
   },
   {
-    path: 'configuracion/:id', component: ConfiguracionComponent,
+    path: 'configuracion/:idconfig', component: ConfiguracionComponent,
   },
   {
     path: 'publicacion/:id', component: PublicationComponent,

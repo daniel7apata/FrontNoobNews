@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   usuario: Users = new Users();
   mensaje: string = '';
+  logued:number = 0;
 
   dataSource: MatTableDataSource<Users> = new MatTableDataSource();
 
@@ -53,15 +54,19 @@ export class LoginComponent implements OnInit {
 
       if (tempUs) {
         if (this.form.valid) {
-
-          this.router.navigate(['inicio']);
-          this.usuario = tempUs
+          this.logued = tempUs.idUser;
+          this.router.navigate(['inicio',this.logued]);
+          this.usuario = tempUs;
         } else {
           this.mensaje = 'Por favor complete todos los campos obligatorios.';
         }
       } else {
         this.mensaje = 'Nombre de usuario o contraseña incorrectos';
       }
+
+
+
+
     });
     this.idUsuario = this.usuario.idUser;
   }
