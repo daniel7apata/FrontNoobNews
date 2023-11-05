@@ -16,6 +16,9 @@ export class HomepageComponent implements OnInit{
 pub1:Publication = new Publication();
 pub2:Publication = new Publication();
 pub3:Publication = new Publication();
+id1:number = 0;
+id2:number = 0;
+id3:number = 0;
   
 //todo esto copialo, cambia Medicine por tu entidad
 dataSource: MatTableDataSource<Publication> = new MatTableDataSource();
@@ -34,10 +37,16 @@ ngOnInit(): void {
   this.pubS.list().subscribe((data) => {
     this.dataSource = new MatTableDataSource(data);
     this.dataSource.paginator = this.paginator;
+    this.id1 = this.dataSource.data.length;
+    this.id2 = this.dataSource.data.length - 1;
+    this.id3 = this.dataSource.data.length - 2;
   });
   this.pubS.getList().subscribe((data) => {
     this.dataSource = new MatTableDataSource(data);
     this.dataSource.paginator = this.paginator;
+    this.id1 = this.dataSource.data.length;
+    this.id2 = this.dataSource.data.length - 1;
+    this.id3 = this.dataSource.data.length - 2;
   });
 
 
@@ -63,19 +72,21 @@ ngOnInit(): void {
     subtitle: 'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
   }
 
+  
+
 
   let tempPub;
 
   this.pubS.list().subscribe((data) => {
-    tempPub = data.find((publi) => publi.idPublication === 21); if (tempPub) {this.pub1 = tempPub;} 
+    tempPub = data.find((publi) => publi.idPublication === this.id1); if (tempPub) {this.pub1 = tempPub;} 
   });
 
   this.pubS.list().subscribe((data) => {
-    tempPub = data.find((publi) => publi.idPublication === 22); if (tempPub) {this.pub2 = tempPub;} 
+    tempPub = data.find((publi) => publi.idPublication === this.id2); if (tempPub) {this.pub2 = tempPub;} 
   });
 
   this.pubS.list().subscribe((data) => {
-    tempPub = data.find((publi) => publi.idPublication === 24); if (tempPub) {this.pub3 = tempPub;} 
+    tempPub = data.find((publi) => publi.idPublication === this.id3); if (tempPub) {this.pub3 = tempPub;} 
   });
 
   
