@@ -43,6 +43,7 @@ ngOnInit(): void {
 
 
 
+
   this.slides[0] = {
     id: 0,
     src: 'https://i.ibb.co/4Vkqq33/imaDEPOR.jpg',
@@ -66,15 +67,15 @@ ngOnInit(): void {
   let tempPub;
 
   this.pubS.list().subscribe((data) => {
-    tempPub = data.find((publi) => publi.idPublication === 1); if (tempPub) {this.pub1 = tempPub;} 
+    tempPub = data.find((publi) => publi.idPublication === 21); if (tempPub) {this.pub1 = tempPub;} 
   });
 
   this.pubS.list().subscribe((data) => {
-    tempPub = data.find((publi) => publi.idPublication === 2); if (tempPub) {this.pub2 = tempPub;} 
+    tempPub = data.find((publi) => publi.idPublication === 22); if (tempPub) {this.pub2 = tempPub;} 
   });
 
   this.pubS.list().subscribe((data) => {
-    tempPub = data.find((publi) => publi.idPublication === 3); if (tempPub) {this.pub3 = tempPub;} 
+    tempPub = data.find((publi) => publi.idPublication === 24); if (tempPub) {this.pub3 = tempPub;} 
   });
 
   
