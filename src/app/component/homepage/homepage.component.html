@@ -52,21 +52,21 @@
 
   <div id="noticiasDestacadas" style="display: flex; margin: auto; float: left; box-sizing: border-box; width: 100%;">
 
-    <mat-card style="width: 400px; margin-left: 6vh; background-color: #8A0101; color:white">
+    <mat-card style="width: 400px; margin-left: 6vh; background-color: #8A0101; color:white" [routerLink]="['/publicacion', pub1.idPublication]">
       <mat-card-content>
         <h3 style="text-align: center;">{{pub1.headline}}</h3>
         <p style="color:rgb(167, 167, 167); text-align: right">{{pub1.datePublication}}</p>
       </mat-card-content>
     </mat-card>
 
-    <mat-card style="width: 400px; margin-left: 6vh; background-color: #8A0101; color:white">
+    <mat-card style="width: 400px; margin-left: 6vh; background-color: #8A0101; color:white" [routerLink]="['/publicacion', pub2.idPublication]">
       <mat-card-content>
         <h3 style="text-align: center;">{{pub2.headline}}</h3>
         <p style="color:rgb(167, 167, 167); text-align: right">{{pub2.datePublication}}</p>
       </mat-card-content>
     </mat-card>
 
-    <mat-card style="width: 400px; margin-left: 6vh; margin-right: 30px; background-color: #8A0101; color:white">
+    <mat-card style="width: 400px; margin-left: 6vh; margin-right: 30px; background-color: #8A0101; color:white" [routerLink]="['/publicacion', pub3.idPublication]">
       <mat-card-content>
         <h3 style="text-align: center;">{{pub3.headline}}</h3>
         <p style="color:rgb(167, 167, 167); text-align: right">{{pub3.datePublication}}</p>
