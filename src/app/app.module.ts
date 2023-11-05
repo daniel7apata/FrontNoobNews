@@ -31,6 +31,7 @@ import { PublicationRegistrarComponent } from './component/publication-registrar
 import { LoginComponent } from './component/login/login.component';
 import { LatoolbarComponent } from './component/latoolbar/latoolbar.component';
 import { SearchComponent } from './component/search/search.component';
+import { AlertModule } from '@coreui/angular';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { SearchComponent } from './component/search/search.component';
     MatToolbarModule,
     MatIconModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    AlertModule
   ],
   providers: [
   ],
