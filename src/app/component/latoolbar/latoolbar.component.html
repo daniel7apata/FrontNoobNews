@@ -1,17 +1,17 @@
 
-<mat-toolbar style="background-color: #8A0101; color:white">
+<mat-toolbar style="background-color: #8A0101; color:white; box-shadow: 1px 1px 10px black;">
    <img src="../assets/imagotipo horizontal blanco.png" href="app.component.html" style="height: 50px;" />
 
    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-   <button mat-button routerLink="/inicio">INICIO</button>
+   <button mat-button [routerLink]="['/inicio', logued]">INICIO</button>
    <p>&nbsp;&nbsp;</p>
    <button mat-button routerLink="/registrarPublicacion">REGISTRAR PUBLICACION</button>
    <p>&nbsp;&nbsp;</p>
-   <button mat-button [routerLink]="['/configuracion', idconfig]">CONFIGURACIÓN</button>
+   <button mat-button (click)="aceptar()">CONFIGURACIÓN{{palabra}}</button>
    <p>&nbsp;&nbsp;</p>
    <button mat-button routerLink="/login">CERRAR SESIÓN</button>
 
-   idconfi
+
    
    <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
 

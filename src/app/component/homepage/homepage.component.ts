@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { Publication } from 'src/app/model/publication';
 import { PublicationService } from 'src/app/service/publication.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { UsersService } from 'src/app/service/users.service';
 
 @Component({
   selector: 'app-homepage',
@@ -19,7 +20,8 @@ pub3:Publication = new Publication();
 id1:number = 0;
 id2:number = 0;
 id3:number = 0;
-
+logued:number = 0;
+idconfig:number = 0;
 
   
 //todo esto copialo, cambia Medicine por tu entidad
@@ -36,8 +38,15 @@ slides: any[] = new Array(3).fill({id: -1, src: '', title: '', subtitle: ''});
 //aca debes referenciar al EntidadService de tu entidad
 constructor(
   private pubS: PublicationService,
-  private route: ActivatedRoute) {}
+  private route: ActivatedRoute,
+  private uS: UsersService,
+  ) {}
 ngOnInit(): void {
+  this.route.params.subscribe((data: Params) => {
+    this.logued = data['logued'];
+   
+  });
+
 
   this.pubS.list().subscribe((data) => {
     this.dataSource = new MatTableDataSource(data);
@@ -95,6 +104,7 @@ ngOnInit(): void {
 
   
 }
+
 
 
 filter(en: any) {

@@ -10,6 +10,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import * as moment from 'moment';
 import { Configuration } from 'src/app/model/configuration';
 import { ConfigurationService } from 'src/app/service/configuration.service';
+import { UsersService } from 'src/app/service/users.service';
 
 
 @Component({
@@ -35,14 +36,17 @@ constructor(
   private cS: ConfigurationService,
   //private router: Router,
   private formBuilder: FormBuilder,
-  private route: ActivatedRoute
+  private route: ActivatedRoute,
+  private uS: UsersService,
 ) {}
 
 ngOnInit(): void {
 
   this.route.params.subscribe((data: Params) => {
-    this.id = data['id'];
-    this.edicion = data['id'] != null;
+    this.id = data['idconfig'];
+    this.edicion = data['idconfig'] != null;
+
+
     this.init();
   });
 
