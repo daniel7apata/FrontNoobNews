@@ -32,7 +32,9 @@ import { LoginComponent } from './component/login/login.component';
 import { LatoolbarComponent } from './component/latoolbar/latoolbar.component';
 import { SearchComponent } from './component/search/search.component';
 import { AlertModule } from '@coreui/angular';
-
+import { CarouselModule } from '@coreui/angular';
+import { CardModule } from '@coreui/angular';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,9 @@ import { AlertModule } from '@coreui/angular';
     MatIconModule,
     MatSelectModule,
     MatFormFieldModule,
-    AlertModule
+    AlertModule,
+    CarouselModule,
+    MatCardModule
   ],
   providers: [
   ],
