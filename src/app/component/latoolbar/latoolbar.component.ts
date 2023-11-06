@@ -43,15 +43,18 @@ export class LatoolbarComponent implements OnInit{
 
   //esto sirve para buscar por el ID del USUARIO, cuando es algo que tenga su llave foranea en la tabla USUARIO
 
-  aceptar() {
+  irConfig() {
     this.uS.listId(this.logued).subscribe((usuario) => {
       if (usuario) {
         this.router.navigate(['configuracion',usuario.configuration.idConfiguration]);
       } 
-    });
-
-   
+    });  
   }
+
+  irInicio() {
+    this.router.navigate(['inicio',this.logued]);
+  }
+
 
   
   obtenerControlCampo(nombreCampo: string): AbstractControl {

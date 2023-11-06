@@ -9,47 +9,86 @@
   <title>Document</title>
 </head>
 
-<body><div style="position:fixed; width: 100%; top: 0%; z-index: 2"><app-latoolbar></app-latoolbar></div>
-  <div class="container" style="margin-top:40px">
+<body>
+  <div style="position:fixed; width: 100%; top: 0%; z-index: 2"><app-latoolbar [logued]="logued"></app-latoolbar></div>
+  <div class="container" style="margin-top:70px;">
     <br>
 
     <!-- aqui cambia el titulo por el que corresponda a tu caso-->
     <h2 style="text-align: center;">Configuracion</h2>
 
+    <div id="ladoIzquierdo" style="margin-top: 60px; margin-left: 30px;">
 
-    <form [formGroup]="form" class="example-form">
-
-
-      <mat-form-field class="example-full-width">
-        <mat-label>Idioma</mat-label>
-        <input matInput placeholder="Idioma" formControlName="language" />
-        <mat-error *ngIf="obtenerControlCampo('language')?.errors?.['required']">
-          El idioma es obligatorio.
-        </mat-error>
-      </mat-form-field>
-
-      <br>
-
-      <mat-form-field class="example-full-width">
-        <mat-label>Estado de las notificaciones</mat-label>
-
-        <input matInput placeholder="Notificaciones" formControlName="notifications" />
-        <mat-error *ngIf="obtenerControlCampo('notifications')?.errors?.['required']">
-          El estado de las notificaciones es obligatorio.
-        </mat-error>
-      </mat-form-field>
+      <h2>Dispositivos conectados</h2>
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form">
 
 
-      <br>
-      <button mat-raised-button color="warn" style="margin-right: 20px;">Guardar</button>
+        <mat-form-field>
+          <mat-label>Idiomas</mat-label>
+          <mat-select formControlName="language">
+            <mat-option *ngFor="let i of idiomas" [value]="i.value">
+              {{i.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="obtenerControlCampo('language')?.errors?.['required']">
+            El idioma es obligatorio.
+          </mat-error>
+        </mat-form-field>
 
-      <br>
-      <p>{{ mensaje }}</p>
-    </form>
+        <br>
 
 
+        <mat-form-field>
+          <mat-label>Estado de las notificaciones</mat-label>
+          <mat-select formControlName="notifications">
+            <mat-option *ngFor="let e of estados" [value]="e.value">
+              {{e.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="obtenerControlCampo('notifications')?.errors?.['required']">
+            El idioma es obligatorio.
+          </mat-error>
+        </mat-form-field>
+
+
+        <br>
+        <button mat-raised-button color="warn" style="margin-right: 20px; background-color: #8A0101; color:white;">Guardar cambios</button>
+
+        <br>
+        <p>{{ mensaje }}</p>
+      </form>
+    </div>
 
   </div>
+
+
+  <div id="dispositivos" style="width: 400px; position: absolute; top: 170px; right:100px">
+
+    <h2 style="text-align: center;">Dispositivos conectados</h2>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="background-color: #8A0101;">
+
+
+      <ng-container matColumnDef="dispositivo">
+        <th mat-header-cell *matHeaderCellDef style="color: white;">Dispositivo</th>
+        <td mat-cell *matCellDef="let element" style="color: white;">{{ element.nameDevice }}</td>
+      </ng-container>
+      <ng-container matColumnDef="momento">
+        <th mat-header-cell *matHeaderCellDef style="color: white;">Último acceso</th>
+        <td mat-cell *matCellDef="let element" style="color: white;">{{ element.dateDevice}} <br> {{element.timeDevice}}
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+
+    </table>
+
+  </div>
+
+
+
+
 </body>
 
 <!-- PASO 11: ahora vamos al html principal, el app.component.html -->
