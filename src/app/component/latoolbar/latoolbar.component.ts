@@ -55,6 +55,9 @@ export class LatoolbarComponent implements OnInit{
     this.router.navigate(['inicio',this.logued]);
   }
 
+  irRegistroPublicacion() {
+    this.router.navigate(['registrarPublicacion',this.logued]);
+  }
 
   
   obtenerControlCampo(nombreCampo: string): AbstractControl {

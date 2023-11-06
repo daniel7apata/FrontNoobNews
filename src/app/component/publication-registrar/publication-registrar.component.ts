@@ -7,11 +7,12 @@ import {
   FormBuilder,
   AbstractControl,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import * as moment from 'moment';
 import { Publication } from 'src/app/model/publication';
 import { Users } from 'src/app/model/users';
 import { PublicationService } from 'src/app/service/publication.service';
+import { UsersService } from 'src/app/service/users.service';
 
 @Component({
   selector: 'app-publication-registrar',
@@ -26,15 +27,23 @@ export class PublicationRegistrarComponent implements OnInit{
   mensaje: string = '';
   maxFecha: Date = moment().add(-1, 'days').toDate();
   usTemp: Users = new Users();
+  logued:number=0;
 
   constructor(
 
     private pS: PublicationService,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private uS: UsersService,
   ) {}
   
   ngOnInit(): void {
+
+    this.route.params.subscribe((data: Params) => {
+      this.logued = +data['id']; //el + sirve para convertir en numero, sin esto no detecta el ID
+    });
+
     this.form = this.formBuilder.group({
 
       headline: ['', Validators.required],

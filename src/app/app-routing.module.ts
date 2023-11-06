@@ -23,7 +23,7 @@ const routes: Routes = [
     path: 'redactor/:id', component: UsersComponent,
   },
   {
-    path: 'registrarPublicacion', component: PublicationRegistrarComponent,
+    path: 'registrarPublicacion/:id', component: PublicationRegistrarComponent,
   },
   {
     path: 'buscar/:palabra', component: SearchComponent,

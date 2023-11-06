@@ -55,10 +55,8 @@
 
         </div>
         <div id="cuerponoticia" style="margin: 30px; ">
-
-
             <div *ngIf="mostrarImagen">
-                <img [src]="urlImagen" alt="Imagen desde Internet" width="400px" style="margin-right: 45px; float: left; margin-bottom: 20px;">
+                <img [src]="urlImagen" alt="Imagen desde Internet" width="auto" height="250px" style="margin-right: 45px; float: left; margin-bottom: 20px;">
             </div>
             <div *ngIf="!mostrarImagen" style="display: 1; ">
                 <p>No se ha encontrado una imagen para este contenido.</p>
