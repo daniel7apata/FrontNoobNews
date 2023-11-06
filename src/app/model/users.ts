@@ -12,7 +12,7 @@ export class Users{
     password:string=""
     profileLinkedIn:string=""
     registrationDate:Date=new Date(Date.now())
-    //private List<Role> roles
+    //roles:List<Role>
     configuration:Configuration=new Configuration()
     university:University=new University()
     username:string=""

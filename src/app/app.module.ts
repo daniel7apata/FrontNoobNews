@@ -35,6 +35,7 @@ import { AlertModule } from '@coreui/angular';
 import { CarouselModule } from '@coreui/angular';
 import { CardModule } from '@coreui/angular';
 import {MatCardModule} from '@angular/material/card';
+import { RegisterComponent } from './component/register/register.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import {MatCardModule} from '@angular/material/card';
     LoginComponent,
     LatoolbarComponent,
     SearchComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

@@ -21,10 +21,10 @@
 
             <br>
             <mat-form-field class="example-full-width" style="width: 80%;  height: 70px;">
-                <mat-label>Usuario</mat-label>
+                <mat-label>Correo</mat-label>
 
-                <input matInput placeholder="Ingrese username" formControlName="username"/>
-                <mat-error *ngIf="obtenerControlCampo('username')?.errors?.['required']">
+                <input matInput placeholder="Ingrese correo electrónico" formControlName="email"/>
+                <mat-error *ngIf="obtenerControlCampo('email')?.errors?.['required']">
                     El usuario es obligatorio.
                 </mat-error>
             </mat-form-field>
@@ -44,7 +44,7 @@
             <br>
             <br>
 
-            <button mat-raised-button color="warn">Ingresar</button>
+            <button mat-raised-button color="warn" style="background-color: #8A0101; color:white;">Ingresar</button>
             <!--aqui falta que redirija a la principal-->
 
             <br>

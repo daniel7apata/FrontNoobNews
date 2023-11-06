@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
 
 
     this.form = this.formBuilder.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
     let tempUs;
 
     this.uS.list().subscribe((data) => {
-      tempUs = data.find((usuarioRegistrado) => usuarioRegistrado.username === this.form.value.username && usuarioRegistrado.password === this.form.value.password);
+      tempUs = data.find((usuarioRegistrado) => usuarioRegistrado.email === this.form.value.email && usuarioRegistrado.password === this.form.value.password);
 
       if (tempUs) {
         if (this.form.valid) {
