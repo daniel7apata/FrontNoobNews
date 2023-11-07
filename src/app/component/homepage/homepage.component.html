@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <style>
+    body {
+      font-family: Georgia;
+    }
+
+    h3 {
+      font-family: Georgia;
+    }
+
+
+
+    .custom-carousel-image {
+      width: 100%;
+      height: 100vh;
+      /* Esto hará que las imágenes ocupen toda la altura de la pantalla */
+      object-fit: cover;
+      /* Esto ajustará la imagen para que ocupe todo el espacio disponible */
+    }
+  </style>
+
+</head>
+
+<body>
+  <div style="position:fixed; width: 100%; top: 0%; z-index: 2"><app-latoolbar [logued]="logued"></app-latoolbar></div>
+
+
+
+  <div id="inicial" style="margin-top:40px">
+
+    <c-carousel [interval]="0">
+      <c-carousel-inner>
+        <c-carousel-item *ngFor="let slide of slides">
+          <img [src]="slide.src" alt="{{slide.title}}" class="d-block w-100" loading="lazy" width="100%" />
+        </c-carousel-item>
+      </c-carousel-inner>
+      <c-carousel-control [routerLink] caption="Previous" direction="prev"></c-carousel-control>
+      <c-carousel-control [routerLink] caption="Next" direction="next"></c-carousel-control>
+    </c-carousel>
+
+  </div>
+
+  <br>
+  <h1 style="font-family: Georgia;">&nbsp;&nbsp;&nbsp;&nbsp;Artículos recientes</h1>
+
+  <div id="noticiasDestacadas" style="display: flex; margin: auto; float: left; box-sizing: border-box; width: 100%;">
+
+    <mat-card style="width: 400px; margin-left: 6vh; background-color: #8A0101; color:white; box-shadow: 1px 1px 10px black;" [routerLink]="['/publicacion', pub1.idPublication]">
+      <mat-card-content>
+        <h3 style="text-align: center;">{{pub1.headline}}</h3>
+        <p style="color:rgb(167, 167, 167); text-align: right">{{pub1.datePublication}}</p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card style="width: 400px; margin-left: 6vh; background-color: #8A0101; color:white; box-shadow: 1px 1px 10px black;" [routerLink]="['/publicacion', pub2.idPublication]">
+      <mat-card-content>
+        <h3 style="text-align: center;">{{pub2.headline}}</h3>
+        <p style="color:rgb(167, 167, 167); text-align: right">{{pub2.datePublication}}</p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card style="width: 400px; margin-left: 6vh; margin-right: 30px; background-color: #8A0101; color:white; box-shadow: 4px 4px 10px black;" [routerLink]="['/publicacion', pub3.idPublication]">
+      <mat-card-content>
+        <h3 style="text-align: center;">{{pub3.headline}}</h3>
+        <p style="color:rgb(167, 167, 167); text-align: right">{{pub3.datePublication}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!--
+
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="titular">
+          <th mat-header-cell *matHeaderCellDef style="color: white;">Titular</th>
+          <td mat-cell *matCellDef="let element" [routerLink]="['/publicacion', element.idPublication]">{{ element.headline }}</td>
+        </ng-container>
+        <ng-container matColumnDef="fecha">
+          <th mat-header-cell *matHeaderCellDef style="color: white;">Fecha</th>
+          <td mat-cell *matCellDef="let element">{{ element.datePublication }}</td>
+        </ng-container>
+        <ng-container matColumnDef="bajada">
+          <th mat-header-cell *matHeaderCellDef style="color: white;">Bajada</th>
+          <td mat-cell *matCellDef="let element">{{ element.lead }}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        <ng-container matColumnDef="Ver">
+          <th mat-header-cell *matHeaderCellDef style="color: white;">Ver</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-raised-button color="warn" [routerLink]="['/publicacion', element.idPublication]">
+              _
+            </button>
+          </td>
+        </ng-container>
+      </table>
+      <mat-paginator [pageSizeOptions]="[7]" showFirstLastButtons></mat-paginator>
+      -->
+
+
+</body>
+
+</html>
