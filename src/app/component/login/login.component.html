@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+</head>
+<body style="background-color: #8A0101; margin: 0;padding: 0;display: flex;justify-content: center;align-items: center;height: 100vh; min-height: 625px; min-width: 165px ">
+    <div id= "solorelleno" style="height: 40px;"></div>
+    <div class="container" style="background-color: white; width:500px; border-radius: 20px; height: 590px;padding-bottom: 50px; padding-top: 3%; box-shadow: 10px 10px 20px black;">
+
+        <br>
+        <img src="https://i.ibb.co/yF695hk/imagotipo-horizontal-negro.png" style="width: 90%;">
+        <br><br>
+        <div id="alineadosAlCentro" style="text-align: center">
+        <h2 style="font-family:'Georgia'; font-size: 25px; color:black">INICIO DE SESIÓN</h2>
+        
+        <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+
+            <br>
+            <mat-form-field class="example-full-width" style="width: 80%;  height: 70px;">
+                <mat-label>Correo</mat-label>
+
+                <input matInput placeholder="Ingrese correo electrónico" formControlName="email"/>
+                <mat-error *ngIf="obtenerControlCampo('email')?.errors?.['required']">
+                    El usuario es obligatorio.
+                </mat-error>
+            </mat-form-field>
+
+            <br><br>
+
+
+            <mat-form-field class="example-full-width" style="width: 80%; height: 70px;">
+                <mat-label>Contraseña</mat-label>
+
+                <input matInput placeholder="Ingrese contraseña" formControlName="password" />
+                <mat-error *ngIf="obtenerControlCampo('password')?.errors?.['required']">
+                    La contraseña es obligatoria
+                </mat-error>
+            </mat-form-field>
+
+            <br>
+            <br>
+
+            <button mat-raised-button color="warn" style="background-color: #8A0101; color:white;">Ingresar</button>
+            <!--aqui falta que redirija a la principal-->
+
+            <br>
+            <p>{{ mensaje }}</p>
+        </form>
+    </div>
+
+    </div>
+
+
+
+
+</body>
+
+
+</html>

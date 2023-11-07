@@ -28,18 +28,14 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { UsersComponent } from './component/users/users.component';
 import { PublicationComponent } from './component/publication/publication.component';
 import { PublicationRegistrarComponent } from './component/publication-registrar/publication-registrar.component';
-
-
-//en declarations agrega todo lo de la nueva entidad y borra los de la antiguas, en imports dejalo asi
-
-//PRESTA ATENCION,CAMBIA nombre_entidad
-//ahora deberás crear los componentes, usa el comando     ng g c component/nombre_entidad --skip-tests
-//PRESTA ATENCION,CAMBIA nombre_entidad
-//ahora deberás crearle componentes internos, uno para listar (notese que es guion normal)        ng g c component/nombre_entidad/entidad-listar --skip-tests
-//PRESTA ATENCION,CAMBIA nombre_entidad
-//y otro para registrar        ng g c component/nombre_entidad/entidad-creaedita --skip-tests
-
-//PASO 7: ahora ve a component/medicine/listar-medicine.component.ts
+import { LoginComponent } from './component/login/login.component';
+import { LatoolbarComponent } from './component/latoolbar/latoolbar.component';
+import { SearchComponent } from './component/search/search.component';
+import { AlertModule } from '@coreui/angular';
+import { CarouselModule } from '@coreui/angular';
+import { CardModule } from '@coreui/angular';
+import {MatCardModule} from '@angular/material/card';
+import { RegisterComponent } from './component/register/register.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +46,10 @@ import { PublicationRegistrarComponent } from './component/publication-registrar
     UsersComponent,
     PublicationComponent,
     PublicationRegistrarComponent,
+    LoginComponent,
+    LatoolbarComponent,
+    SearchComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +70,10 @@ import { PublicationRegistrarComponent } from './component/publication-registrar
     MatToolbarModule,
     MatIconModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    AlertModule,
+    CarouselModule,
+    MatCardModule
   ],
   providers: [
   ],
