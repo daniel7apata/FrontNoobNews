@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #8A0101">
+    <div id="solorelleno" style="height: 40px;"></div>
+    <div class="container" style="background-color: white; width:500px; border-radius: 20px; padding-bottom: 40px; padding-top: 3%; box-shadow: 10px 10px 20px black;">
+
+        <img src="https://i.ibb.co/yF695hk/imagotipo-horizontal-negro.png" style="width: 95%;">
+        <br><br><br>
+        <div id="alineadosAlCentro" style="text-align: center">
+            <h2 style="font-family:'Franklin Gothic Heavy'; font-size: 30px; color:black">REGISTRARSE</h2>
+
+            <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+
+
+                <mat-form-field class="example-full-width" style="width: 80%;">
+                  <mat-label>Nombres</mat-label>
+          
+                  <input matInput placeholder="Ingresa tu nombre completo" formControlName="names" />
+                  <mat-error *ngIf="obtenerControlCampo('names')?.errors?.['required']">
+                    El nombre es obligatorio.
+                  </mat-error>
+                </mat-form-field>
+          
+                <br>
+          
+                <mat-form-field class="example-full-width" style="width: 80%;">
+                  <mat-label>Apellido paterno</mat-label>
+          
+                  <input matInput placeholder="Ingresa apellido paterno" formControlName="fathersurname" />
+                  <mat-error *ngIf="obtenerControlCampo('fathersurname')?.errors?.['required']">
+                    El apellido paterno es obligatorio.
+                  </mat-error>
+                </mat-form-field>
+          
+                <br>
+          
+          
+                <mat-form-field class="example-full-width" style="width: 80%;">
+                    <mat-label>Apellido materno</mat-label>
+            
+                    <input matInput placeholder="Ingresa apellido materno" formControlName="mothersurname" />
+                    <mat-error *ngIf="obtenerControlCampo('mothersurname')?.errors?.['required']">
+                      El apellido materno es obligatorio.
+                    </mat-error>
+                  </mat-form-field>
+            
+          
+                <br>
+          
+          
+                <mat-form-field class="example-full-width" style="width: 80%;">
+                  <mat-label>Email</mat-label>
+          
+                  <input matInput placeholder="Ingresa el correo electronico" formControlName="email" />
+                    <mat-error *ngIf="obtenerControlCampo('email')?.errors?.['required']">
+                      El correo electronico es obligatorio.
+                    </mat-error>
+                </mat-form-field>
+          
+                <br>
+
+                
+                <!-- Este es otro campo es un datepicker-->
+                <mat-form-field appearance="fill" class="example-full-width" style="width: 80%;">
+                  <input matInput placeholder="Ingrese fecha de nacimiento" [matDatepicker]="picker" formControlName="birthdate" [max]="maxFecha" />
+
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                  <mat-error *ngIf="obtenerControlCampo('birthdate')?.errors?.['required']">
+                    La fecha de nacimiento es obligatoria.
+                  </mat-error>
+                </mat-form-field>
+          
+          
+                <br>
+                <mat-form-field class="example-full-width" style="width: 80%;">
+                  <mat-label>Usuario</mat-label>
+          
+                  <input matInput placeholder="Ingresa el nombre de usuario" formControlName="username" />
+                    <mat-error *ngIf="obtenerControlCampo('username')?.errors?.['required']">
+                      El nombre de usuario es obligatorio.
+                    </mat-error>
+                </mat-form-field>
+          
+                <br>
+
+                <mat-form-field class="example-full-width" style="width: 80%;">
+                  <mat-label>Contraseña</mat-label>
+          
+                  <input matInput placeholder="Ingresa el nombre de usuario" formControlName="password" />
+                    <mat-error *ngIf="obtenerControlCampo('password')?.errors?.['required']">
+                      La contraseña es obligatoria.
+                    </mat-error>
+                </mat-form-field>
+          
+                <br>
+                
+                <mat-form-field class="example-full-width" style="width: 80%;">
+                  <mat-label>Linkedin</mat-label>
+          
+                  <input matInput placeholder="Ingresa el perfil de Linkedin" formControlName="linkedin" />
+                    <mat-error *ngIf="obtenerControlCampo('linkedin')?.errors?.['required']">
+                      El perfil de Linkedin es obligatorio.
+                    </mat-error>
+                </mat-form-field>
+          
+                <br>
+
+                <button mat-raised-button color="warn">Registrar</button>
+                <br>
+                <p>{{ mensaje }}</p>
+          
+            </form>
+        </div>
+
+    </div>
+
+    
+</body>
+</html>
