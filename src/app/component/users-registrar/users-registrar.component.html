@@ -79,21 +79,25 @@
           
           
                 <br>
-                <mat-form-field class="example-full-width" style="width: 80%;">
-                  <mat-label>Usuario</mat-label>
-          
-                  <input matInput placeholder="Ingresa el nombre de usuario" formControlName="username" />
-                    <mat-error *ngIf="obtenerControlCampo('username')?.errors?.['required']">
-                      El nombre de usuario es obligatorio.
-                    </mat-error>
+                <!-- Otros campos del formulario -->
+                <mat-form-field appearance="fill">
+                  <mat-label>Nombre de Usuario Generado</mat-label>
+                  <input matInput formControlName="username" [value]="generateUsername(this.form.value('names'),
+                  this.form.value('fathersurname'),
+                  this.form.value('mothersurname'))">
                 </mat-form-field>
-          
+
+                <!-- Mostrar el nombre de usuario generado en tiempo real -->
+                <p *ngIf="form.valid && form.get('names')?.value && form.get('fathersurname')?.value && form.get('mothersurname')?.value">
+                  Nombre de usuario generado: {{ generateUsername(form.get('names')?.value, form.get('fathersurname')?.value, form.get('mothersurname')?.value) }}
+                </p>
+
                 <br>
 
                 <mat-form-field class="example-full-width" style="width: 80%;">
                   <mat-label>Contraseña</mat-label>
           
-                  <input matInput placeholder="Ingresa el nombre de usuario" formControlName="password" />
+                  <input matInput placeholder="Ingresa contraseña" formControlName="password" />
                     <mat-error *ngIf="obtenerControlCampo('password')?.errors?.['required']">
                       La contraseña es obligatoria.
                     </mat-error>
