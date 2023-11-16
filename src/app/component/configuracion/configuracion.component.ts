@@ -14,6 +14,7 @@ import { Configuration } from 'src/app/model/configuration';
 import { ConnectedDevice } from 'src/app/model/connectedDevice';
 import { ConfigurationService } from 'src/app/service/configuration.service';
 import { ConnectedDeviceService } from 'src/app/service/connected-device.service';
+import { LoginService } from 'src/app/service/login.service';
 import { UsersService } from 'src/app/service/users.service';
 
 
@@ -69,6 +70,7 @@ export class ConfiguracionComponent implements OnInit {
     private route: ActivatedRoute,
     private uS: UsersService,
     private dispoS: ConnectedDeviceService,
+    private loginService: LoginService,
   ) { }
 
   ngOnInit(): void {
@@ -158,6 +160,12 @@ export class ConfiguracionComponent implements OnInit {
         });
       });
     
+  }
+
+  verificar() {
+    let token = sessionStorage.getItem("token");
+    return token != null;
+
   }
 
 }

@@ -52,7 +52,12 @@ export class ConfigurationService {
     });
   }
   update(c: Configuration) {
-    return this.http.put(this.url, c);
+    let token = sessionStorage.getItem('token');
+    return this.http.put(this.url, c, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
   delete(id: number) {
     let token = sessionStorage.getItem('token');

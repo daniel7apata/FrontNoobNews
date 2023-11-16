@@ -9,10 +9,9 @@
    <p>&nbsp;&nbsp;</p>
    <button mat-button (click)="irConfig()">CONFIGURACIÓN</button>
    <p>&nbsp;&nbsp;</p>
-   <button  mat-menu-item routerLink="/login" (click)="cerrar()">CERRAR SESIÓN</button>
-   <button mat-menu-item >Rol:
-      <span>{{role}}</span>
-    </button>
+
+   <button  mat-button routerLink="/login" (click)="cerrar()">CERRAR SESIÓN</button>
+   <p style="font-size: 12px; margin-left: 70px; margin-top: 12px;">Bienvenido {{role}}!</p>
 
    
    <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
