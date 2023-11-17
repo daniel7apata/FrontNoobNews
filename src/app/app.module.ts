@@ -37,6 +37,8 @@ import { CardModule } from '@coreui/angular';
 import {MatCardModule} from '@angular/material/card';
 import { RegisterComponent } from './component/register/register.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AdministracionComponent } from './component/administracion/administracion.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -52,6 +54,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     LatoolbarComponent,
     SearchComponent,
     RegisterComponent,
+    AdministracionComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,6 +80,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     CarouselModule,
     MatCardModule,
     MatSnackBarModule,
+    NgChartsModule,
   ],
   providers: [
   ],

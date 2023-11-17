@@ -2,25 +2,25 @@ import { Observable, Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Publication } from '../model/publication';
-import { InteractionPublicationDTO } from '../model/InteractionPublicationDTO';
+import { LogicRol } from '../model/logicrol';
+import { UserRoleDTO } from '../model/UserRoleDTO';
 const base_url = environment.base
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class PublicationService {
+export class LogicrolService {
 
-  private url = `${base_url}/publication`
+  private url = `${base_url}/logicrol`
 
-  private listaCambio = new Subject<Publication[]>()
+  private listaCambio = new Subject<LogicRol[]>()
 
   constructor(private http: HttpClient) { }
   
-
   list() {
     let token = sessionStorage.getItem('token');
-    return this.http.get<Publication[]>(this.url, {
+    return this.http.get<LogicRol[]>(this.url, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),
@@ -28,9 +28,9 @@ export class PublicationService {
   }
 
 
-  insert(pub: Publication) {
+  insert(rol: LogicRol) {
     let token = sessionStorage.getItem('token');
-    return this.http.post(this.url, pub, {
+    return this.http.post(this.url, rol, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),
@@ -38,23 +38,24 @@ export class PublicationService {
   }
 
 
-  setList(listaNueva: Publication[]) {
+  setList(listaNueva: LogicRol[]) {
     this.listaCambio.next(listaNueva);
   }
+
   getList() {
     return this.listaCambio.asObservable();
   }
 
   listId(id: number) {
     let token = sessionStorage.getItem('token');
-    return this.http.get<Publication>(`${this.url}/${id}`, {
+    return this.http.get<LogicRol>(`${this.url}/${id}`, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),
     });
   }
-  update(t: Publication) {
-    return this.http.put(this.url, t);
+  update(r: LogicRol) {
+    return this.http.put(this.url, r);
   }
   delete(id: number) {
     let token = sessionStorage.getItem('token');
@@ -65,15 +66,12 @@ export class PublicationService {
     });
   }
 
-  
-  getCountInteractionsByPublication(): Observable<InteractionPublicationDTO[]> {
+  getUserByRole(): Observable<UserRoleDTO[]> {
     let token = sessionStorage.getItem('token');
-    return this.http.get<InteractionPublicationDTO[]>(`${this.url}/interactions`, {
+    return this.http.get<UserRoleDTO[]>(`${this.url}/logicusers`, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),
     });
   }
-
-
 }

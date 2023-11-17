@@ -1,9 +1,10 @@
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Publication } from '../model/publication';
 import { LogicUser } from '../model/logicuser';
+import { InteractionUsersDTO } from '../model/InteractionUsersDTO';
 const base_url = environment.base
 
 
@@ -61,6 +62,15 @@ export class UsersService {
   delete(id: number) {
     let token = sessionStorage.getItem('token');
     return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
+  }
+
+  getCountInteractionByUsers(): Observable<InteractionUsersDTO[]> {
+    let token = sessionStorage.getItem('token');
+    return this.http.get<InteractionUsersDTO[]>(`${this.url}/interactions`, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),
