@@ -1,0 +1,94 @@
+<!-- PASO 25: aca copia la estructura del equivalente-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body><div style="position:fixed; width: 100%; top: 0%; z-index: 2"><app-latoolbar [logued]="logued"></app-latoolbar></div>
+  <div class="container" style="text-align: center; margin-top: 40px;">
+
+
+    <h1>NUEVA PUBLICACION</h1>
+
+    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+
+
+      <mat-form-field class="example-full-width" style="width: 80%;">
+        <mat-label>Titular</mat-label>
+
+        <input matInput placeholder="Ingresa el titular de la noticia" formControlName="headline" />
+        <mat-error *ngIf="obtenerControlCampo('headline')?.errors?.['required']">
+          El titular es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+
+
+      <mat-form-field class="example-full-width" style="width: 80%;">
+        <mat-label>Bajada</mat-label>
+
+        <textarea matInput placeholder="Ingresa bajada de la noticia" formControlName="lead"></textarea>
+        <mat-error *ngIf="obtenerControlCampo('lead')?.errors?.['required']">
+          La bajada de la noticia es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field class="example-full-width" style="width: 80%;">
+        <mat-label>Cuerpo</mat-label>
+
+        <textarea matInput placeholder="Desarrolla el cuerpo de la noticia" formControlName="body"></textarea>
+        <mat-error *ngIf="obtenerControlCampo('body')?.errors?.['required']">
+          El cuerpo de la noticia es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+
+
+      <mat-form-field class="example-full-width" style="width: 80%;">
+        <mat-label>Imagen</mat-label>
+
+        <input matInput placeholder="Ingresa el link de la imagen (puedes usar imgbb.com)"
+          formControlName="attachedFile" />
+      </mat-form-field>
+
+      <br>
+
+
+      <h2 style="text-align: center;">Categorias</h2>
+
+      <mat-form-field class="example-full-width" style="width: 80%;">
+        <mat-label>Lista de categorias</mat-label>
+        
+        <mat-select formControlName="category">
+          <mat-option *ngFor="let c of listaCategorias" [value]="c.idCategory">
+            {{c.nameCategory}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="obtenerControlCampo('category')?.errors?.['required']">
+          Eige 1 categoria.
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+
+      <button mat-raised-button color="warn">Registrar</button>
+
+
+      <br>
+      <p>{{ mensaje }}</p>
+    </form>
+
+  </div>
+</body>
+
+</html>
