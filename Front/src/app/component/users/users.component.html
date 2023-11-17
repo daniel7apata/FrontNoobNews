@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body><div style="position:fixed; width: 100%; top: 0%; z-index: 2"><app-latoolbar></app-latoolbar></div>
+    
+    <div id="datosPersonales" style="line-height: 20px; margin-top:100px; text-align: center;">
+        <h1 style="font-size: 30px;">{{nombre}} {{apellidoPaterno}} {{apellidoMaterno}}</h1>
+        <br>
+        <h3>Correo electrónico:</h3>
+        <h2>{{email}}</h2>
+        <h3>Perfil LinkedIn:</h3>
+        <h2>/{{perfilLinkedIn}}</h2>
+        <h3>Fecha registro:</h3>
+        <h2>{{fechaRegistro}}</h2>
+        <h3>Universidad:</h3>
+        <h2>{{universidad}}</h2>
+
+    </div>
+
+    
+    <div id="infoAdicional" style="margin:100px">
+
+        <h1 >Portafolio</h1>
+        <table mat-table [dataSource]="dataSourcePub" class="mat-elevation-z8" style="box-shadow: none;">
+            <ng-container matColumnDef="titular">
+                <th mat-header-cell *matHeaderCellDef><h2>Publicaciones</h2></th>
+                <td mat-cell *matCellDef="let element" [routerLink]="['/publicacion', element.idPublication]" style="background-color:#8A0101; color:white" class="hover-cursor">{{
+                    element.headline }}</td>
+            </ng-container>
+            <ng-container matColumnDef="fecha1">
+                <th mat-header-cell *matHeaderCellDef style="color: white;">Fecha</th>
+                <td mat-cell *matCellDef="let element" [routerLink]="['/publicacion', element.idPublication]" style="background-color:#8A0101; color:white">{{ element.datePublication }}</td>
+            </ng-container>
+            <ng-container matColumnDef="bajada">
+                <th mat-header-cell *matHeaderCellDef style="color: white;"></th>
+                <td mat-cell *matCellDef="let element" [routerLink]="['/publicacion', element.idPublication]" style="background-color:#8A0101; color:white">{{ element.lead }}</td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns1"></tr>
+        </table>
+
+        <br>
+        <br>
+
+ 
+        
+           
+        <table mat-table [dataSource]="dataSourceAck" class="mat-elevation-z8" style="box-shadow: none;">
+
+            <ng-container matColumnDef="descripcion">
+                <th mat-header-cell *matHeaderCellDef><h2>Reconocimientos</h2></th>
+                <td mat-cell *matCellDef="let element" style="background-color:#8A0101; color:white">{{ element.description }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="fecha2">
+                <th mat-header-cell *matHeaderCellDef style="color: white;"></th>
+                <td mat-cell *matCellDef="let element" style="background-color:#8A0101; color:white">{{ element.dateAcknowledgment }}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns2"></tr>
+        </table>
+
+
+
+
+        <br>
+        <br>
+        
+
+        <table mat-table [dataSource]="dataSourceExt" class="mat-elevation-z8" style="box-shadow: none;">
+
+            <ng-container matColumnDef="titularExt">
+                <th mat-header-cell *matHeaderCellDef><h2>Publicaciones externas</h2></th>
+                <td mat-cell *matCellDef="let element" style="background-color:#8A0101; color:white">{{ element.headline }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="enlace">
+                <th mat-header-cell *matHeaderCellDef style="color: white;"></th>
+                <td mat-cell *matCellDef="let element" style="background-color:#8A0101; color:white"><a href="{{ element.link }}" style="color: rgb(143, 143, 143);">{{ element.link }}</a></td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns3"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns3"></tr>
+        </table>
+   
+
+    </div>
+</body>
+
+</html>
