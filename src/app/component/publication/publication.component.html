@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Georgia';
+        }
+
+        h1 {
+            font-family: 'Georgia';
+            font-size: 35px; 
+            line-height: 50px;
+            color:white;
+        }
+
+        h2 {
+            font-family: 'Georgia';
+            font-size: 20px;
+            color:white;
+        }
+        h3{
+        font-family: 'Georgia';
+        font-size: 35px;
+        color:white; 
+        text-align: center; 
+        }
+        p {
+            font-family: 'Georgia';
+            font-size: 16px;
+        }
+    </style>
+
+</head>
+
+<body><div style="position:fixed; width: 100%; top: 0%; z-index: 2"><app-latoolbar></app-latoolbar></div>
+    <div id="contenidonoticia" style="margin-top:40px">
+        <div id="titularlead"
+            style="background-color:#4D0000; padding-top: 40px; padding-left: 30px; padding-right: 30px; padding-bottom: 10px; display: flex;">
+            <br>
+            <div id="infoNoticia" style="width: 75%;">
+                <h1>{{titular}}</h1>
+                <h2>{{bajada}}</h2>
+                <p style="color:rgb(158, 158, 158)">{{fecha}}</p>
+            </div>
+
+            <div id="cat" style="width: 25%;">
+                <h3 style="line-height: 40px; margin-top:35px; font-size: 30px;">Categoria:</h3>
+                <h3 [routerLink]="['/categoria']">{{categoria}} </h3>
+                </div>
+
+            <hr style="width: 15px; height: 170px; background-color: #8A0101;  margin: 0 10px;">
+
+            <div id="creditos" style="width: 25%;">
+            <h3 style="line-height: 40px; margin-top:35px; font-size: 30px;">Redacción:</h3>
+            <h3 [routerLink]="['/redactor', idRedactor]">{{redactor}} {{apellidoPaterno}}</h3>
+            </div>
+
+        </div>
+        <div id="cuerponoticia" style="margin: 30px; ">
+            <div *ngIf="mostrarImagen">
+                <img [src]="urlImagen" alt="Imagen desde Internet" width="auto" height="250px" style="margin-right: 45px; float: left; margin-bottom: 20px;">
+            </div>
+            <div *ngIf="!mostrarImagen" style="display: 1; ">
+                <p>No se ha encontrado una imagen para este contenido.</p>
+            </div>
+           
+            <p>{{cuerpo}}</p>
+        </div>
+    </div>
+</body>
+
+</html>
