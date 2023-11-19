@@ -59,6 +59,10 @@ export class CategoryRegistrarComponent implements OnInit{
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     });
+    this.cS.getList().subscribe((data) => {
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+    });
   }
   aceptar(): void {
     if (this.form.valid) {
