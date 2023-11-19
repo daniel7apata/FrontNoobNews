@@ -27,10 +27,12 @@ export class AdministracionListarInteraccionesComponent implements OnInit{
 
   ngOnInit(): void {
     this.intS.list().subscribe(data => {
-      this.dataSource = new MatTableDataSource(data)
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     })
     this.intS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     });
   }
 
