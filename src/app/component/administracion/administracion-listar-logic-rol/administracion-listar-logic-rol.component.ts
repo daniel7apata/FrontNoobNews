@@ -25,10 +25,12 @@ export class AdministracionListarLogicRolComponent implements OnInit{
 
   ngOnInit(): void {
     this.logS.list().subscribe(data => {
-      this.dataSource = new MatTableDataSource(data)
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     })
     this.logS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     });
   }
 
