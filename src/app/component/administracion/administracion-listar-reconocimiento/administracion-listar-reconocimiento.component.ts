@@ -26,9 +26,11 @@ export class AdministracionListarReconocimientoComponent implements OnInit{
   ngOnInit(): void {
     this.ackS.list().subscribe(data => {
       this.dataSource = new MatTableDataSource(data)
+      this.dataSource.paginator = this.paginator;
     })
     this.ackS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     });
   }
 
