@@ -17,6 +17,8 @@ import { UniversityService } from 'src/app/service/university.service';
 import { UsersService } from 'src/app/service/users.service';
 import { ConfigurationService } from 'src/app/service/configuration.service';
 import { MatPaginator } from '@angular/material/paginator';
+import * as CryptoJS from 'crypto-js';
+
 
 @Component({
   selector: 'app-register',
@@ -108,7 +110,7 @@ export class RegisterComponent implements OnInit {
         this.usuario.registrationDate = new Date(Date.now());
         this.usuario.configuration.idConfiguration = +this.dataSource2.data.length;
         this.usuario.university.idUniversity = this.form.value.universidad;
-        this.usuario.username = this.form.value.nombres + this.form.value.apellidoPaterno + this.form.value.apellidoMaterno;
+        this.usuario.username = (this.form.value.nombres + this.form.value.apellidoPaterno).toLowerCase();
         this.usuario.enabled = true;
 
         this.uS.insert(this.usuario).subscribe(() => {
@@ -116,6 +118,16 @@ export class RegisterComponent implements OnInit {
             this.uS.setList(data);
           })
         });
+
+
+        let passwordPlainText = this.form.value.contrasenia;
+        let passwordHash = CryptoJS.SHA256(passwordPlainText).toString();
+        this.usuario.password = passwordHash;
+
+        console.log(this.usuario.password);
+
+
+        this.uS.registrarSecurity(this.usuario.enabled, this.usuario.password, this.usuario.password);
 
         console.log(this.usuario);
         sessionStorage.clear();

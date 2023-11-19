@@ -83,5 +83,22 @@ export class UsersService {
     });
   }
 
+  registrarSecurity(enabled:boolean, password:string, username:string) {
+    let token = sessionStorage.getItem('token');
+    return this.http.post(`${this.url}/toSecurity`, 
+      {
+        enabled: enabled,
+        password: password,
+        username: username
+      },
+      {
+        headers: new HttpHeaders()
+          .set('Authorization', `Bearer ${token}`)
+          .set('Content-Type', 'application/json'),
+      }
+    );
+  }
+
+
 
 }
