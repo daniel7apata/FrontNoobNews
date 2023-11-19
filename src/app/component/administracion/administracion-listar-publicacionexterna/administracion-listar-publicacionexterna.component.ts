@@ -27,10 +27,12 @@ export class AdministracionListarPublicacionexternaComponent implements OnInit{
 
   ngOnInit(): void {
     this.peS.list().subscribe(data => {
-      this.dataSource = new MatTableDataSource(data)
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     })
     this.peS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     });
   }
 
