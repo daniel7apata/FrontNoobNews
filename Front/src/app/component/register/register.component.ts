@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   usuario: LogicUser = new LogicUser();
   mensaje: string = '';
-  
+
   listaUniversidades: { value: number; viewValue: string }[] = [
     { value: 1, viewValue: 'UPN' },
     { value: 2, viewValue: 'PUCP' },
@@ -43,11 +43,8 @@ export class RegisterComponent implements OnInit {
 
   dataSource: MatTableDataSource<LogicUser> = new MatTableDataSource();
   maxFecha: Date = moment().add(-1, 'days').toDate();
-  //idUsuario: number = 0;
+  idUsuario: number = 0;
   edicion: boolean = false;
-  
-  configTemp: Configuration = new Configuration();
-
   constructor(
 
     private uS: UsersService,
@@ -86,9 +83,7 @@ export class RegisterComponent implements OnInit {
       this.usuario.password = this.form.value.contrasenia;
       this.usuario.profileLinkedIn = this.form.value.linkedin;
       this.usuario.registrationDate = new Date(Date.now());
-      //this.usuario.configuration = new Configuration();
-      this.configTemp.idConfiguration=1;
-      this.usuario.configuration=this.configTemp;
+      this.usuario.configuration = new Configuration();
       this.usuario.university.idUniversity = this.form.value.universidad;
       this.usuario.username = this.form.value.nombres+this.form.value.apellidoPaterno+this.form.value.apellidoMaterno;
       this.usuario.enabled = true;

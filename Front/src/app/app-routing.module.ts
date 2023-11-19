@@ -8,6 +8,8 @@ import { PublicationRegistrarComponent } from './component/publication-registrar
 import { LoginComponent } from './component/login/login.component';
 import { SearchComponent } from './component/search/search.component';
 import { RegisterComponent } from './component/register/register.component';
+import { AdministracionComponent } from './component/administracion/administracion.component';
+import { CategoryRegistrarComponent } from './component/category-registrar/category-registrar.component';
 //PASO 15: aqui borraremos lo que ya no corresponde
 
 const routes: Routes = [
@@ -37,8 +39,16 @@ const routes: Routes = [
     path: 'registro', component: RegisterComponent,
   },
   {
+    path: 'administracion', component: AdministracionComponent,
+  },
+  {
     path: 'login', component: LoginComponent,
-  }
+  },
+  {
+    path: 'registrarCategoria', component: CategoryRegistrarComponent,
+  },
+
+  
 
 ];
 

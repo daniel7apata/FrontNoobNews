@@ -17,10 +17,10 @@
         <div id="alineadosAlCentro" style="text-align: center">
             <h2 style="font-family:'Georgia'; font-size: 25px; color:white;">REGISTRO</h2>
 
-            <form [formGroup]="form" (submit)="registrar()" class="example-form">
+            <form [formGroup]="form" (click)="registrar()" class="example-form">
 
                 <br>
-                <mat-form-field class="example-full-width" style="width: 70%;  height: 70px;">
+                <mat-form-field class="example-full-width" style="width: 80%;  height: 70px;">
                     <mat-label>Nombres</mat-label>
                     <input matInput placeholder="Nombres" formControlName="nombres" />
                     <mat-error *ngIf="obtenerControlCampo('nombres')?.errors?.['required']">
@@ -28,7 +28,7 @@
                     </mat-error>
                 </mat-form-field>
 
-                <mat-form-field class="example-full-width" style="width: 70%;  height: 70px;">
+                <mat-form-field class="example-full-width" style="width: 80%;  height: 70px;">
                     <mat-label>Apellido paterno</mat-label>
                     <input matInput placeholder="Apellido paterno" formControlName="apellidoPaterno" />
                     <mat-error *ngIf="obtenerControlCampo('apellidoPaterno')?.errors?.['required']">
@@ -36,13 +36,13 @@
                     </mat-error>
                 </mat-form-field>
 
-                <mat-form-field class="example-full-width" style="width: 70%;  height: 70px;">
+                <mat-form-field class="example-full-width" style="width: 80%;  height: 70px;">
                     <mat-label>Apellido materno</mat-label>
                     <input matInput placeholder="Apellido materno" formControlName="apellidoMaterno" />
                 </mat-form-field>
 
                 <!--datepicker-->
-                <mat-form-field appearance="fill" class="example-full-width" style="width: 45%;">
+                <mat-form-field appearance="fill" class="example-full-width">
                     <input
                       matInput
                       placeholder="Ingrese fecha de nacimiento"
@@ -63,7 +63,7 @@
                     </mat-error>
                   </mat-form-field>
 
-                <mat-form-field class="example-full-width" style="width: 70%;  height: 70px;">
+                <mat-form-field class="example-full-width" style="width: 80%;  height: 70px;">
                     <mat-label>Correo electronico</mat-label>
                     <input matInput placeholder="Email" formControlName="correo" />
                     <mat-error *ngIf="obtenerControlCampo('correo')?.errors?.['required']">
@@ -71,7 +71,7 @@
                     </mat-error>
                 </mat-form-field>
 
-                <mat-form-field class="example-full-width" style="width: 70%;  height: 70px;">
+                <mat-form-field class="example-full-width" style="width: 80%;  height: 70px;">
                     <mat-label>Contraseña</mat-label>
                     <input matInput placeholder="Contraseña" formControlName="contrasenia" />
                     <mat-error *ngIf="obtenerControlCampo('contrasenia')?.errors?.['required']">
@@ -79,7 +79,7 @@
                     </mat-error>
                 </mat-form-field>
 
-                <mat-form-field class="example-full-width" style="width: 70%;  height: 70px;">
+                <mat-form-field class="example-full-width" style="width: 80%;  height: 70px;">
                     <mat-label>Confirmar contraseña</mat-label>
                     <input matInput placeholder="Confirmar contraseña" formControlName="contraseniaConf" />
                     <mat-error *ngIf="obtenerControlCampo('contraseniaConf')?.errors?.['required']">
@@ -87,7 +87,7 @@
                     </mat-error>
                 </mat-form-field>
 
-                <mat-form-field class="example-full-width" style="width: 70%;  height: 70px;">
+                <mat-form-field class="example-full-width" style="width: 80%;  height: 70px;">
                     <mat-label>Perfil de linkedin</mat-label>
                     <input matInput placeholder="Perfil de LinkedIn" formControlName="linkedin" />
                 </mat-form-field>

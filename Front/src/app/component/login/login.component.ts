@@ -23,7 +23,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class LoginComponent implements OnInit {
 
-  hide=true;//para la contraseña en login
+
 
   usuario: LogicUser = new LogicUser();
 
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   username: string = ""
   password: string = ""
   mensaje: string = ""
-  
+
   constructor(
 
     private uS: UsersService,

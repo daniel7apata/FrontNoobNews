@@ -76,6 +76,14 @@ export class LatoolbarComponent implements OnInit {
     this.router.navigate(['registrarPublicacion']);
   }
 
+  irAdmin() {
+    this.router.navigate(['administracion']);
+  }
+
+  irRegistroCategoria(){
+    this.router.navigate(['registrarCategoria'])
+  }
+  
   cerrar() {
     sessionStorage.clear();
   }

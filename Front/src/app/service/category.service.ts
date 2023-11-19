@@ -1,9 +1,10 @@
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Configuration } from '../model/configuration';
 import { Category } from '../model/category';
+import { PublicationCategoryDTO } from '../model/PublicationCategoryDTO';
 const base_url = environment.base
 
 @Injectable({
@@ -58,6 +59,15 @@ export class CategoryService {
   delete(id: number) {
     let token = sessionStorage.getItem('token');
     return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
+  }
+
+  getPublicationbyCategory(): Observable<PublicationCategoryDTO[]> {
+    let token = sessionStorage.getItem('token');
+    return this.http.get<PublicationCategoryDTO[]>(`${this.url}/publication`, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),
