@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
           this.mensaje = 'Por favor complete todos los campos obligatorios.';
         }
       } else {
-        this.mensaje = 'Nombre de usuario o contraseña incorrectos';
+        this.mensaje = 'Nombre de usuario o contraseÃ±a incorrectos';
       }
 
     });
@@ -67,17 +67,31 @@ export class LoginComponent implements OnInit {
   }
 */
 
-login() {
-  let request = new JwtRequest();
-  request.username = this.username;
-  request.password = this.password;
-  this.loginService.login(request).subscribe((data: any) => {
-    sessionStorage.setItem("token", data.jwttoken);
-    this.router.navigate(['inicio']);
-  }, error => {
-    this.mensaje = "Credenciales incorrectas!!!"
-    this.snackBar.open(this.mensaje, "Aviso",{duration:2000});
-  });
-}
+  login() {
+    let request = new JwtRequest();
+    request.username = this.username;
+    request.password = this.password;
+    this.loginService.login(request).subscribe((data: any) => {
+      sessionStorage.setItem("token", data.jwttoken);
+      this.router.navigate(['inicio']);
+    }, error => {
+      this.mensaje = "Credenciales incorrectas!!!"
+      this.snackBar.open(this.mensaje, "Aviso", { duration: 2000 });
+    });
+  }
+
+
+  irRegistro() {
+    let request = new JwtRequest();
+    request.username = "lauragutierrez";
+    request.password = "unocero";
+    this.loginService.login(request).subscribe((data: any) => {
+      sessionStorage.setItem("token", data.jwttoken);
+      this.router.navigate(['registro']);
+    }, error => {
+      this.mensaje = "Credenciales incorrectas!!!"
+      this.snackBar.open(this.mensaje, "Aviso", { duration: 2000 });
+    });
+  }
 
 }

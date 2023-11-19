@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { LoginService } from './../../service/login.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   FormGroup,
   FormControl,
@@ -14,6 +15,8 @@ import { University } from 'src/app/model/university';
 import { LogicUser } from 'src/app/model/logicuser';
 import { UniversityService } from 'src/app/service/university.service';
 import { UsersService } from 'src/app/service/users.service';
+import { ConfigurationService } from 'src/app/service/configuration.service';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +25,7 @@ import { UsersService } from 'src/app/service/users.service';
 })
 export class RegisterComponent implements OnInit {
 
-  
+
   form: FormGroup = new FormGroup({});
   usuario: LogicUser = new LogicUser();
   mensaje: string = '';
@@ -45,13 +48,21 @@ export class RegisterComponent implements OnInit {
   maxFecha: Date = moment().add(-1, 'days').toDate();
   idUsuario: number = 0;
   edicion: boolean = false;
+
+  dataSource2: MatTableDataSource<Configuration> = new MatTableDataSource();
+
+  config: Configuration = new Configuration();
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   constructor(
 
     private uS: UsersService,
     private router: Router,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private uniS:UniversityService,
+    private uniS: UniversityService,
+    private lS: LoginService,
+    private cS: ConfigurationService,
   ) { }
 
   ngOnInit(): void {
@@ -68,37 +79,56 @@ export class RegisterComponent implements OnInit {
       linkedin: [''],
       universidad: ['', Validators.required],
     });
- 
 
+    console.log(this.lS.showUsername())
 
   }
 
   registrar() {
-    if (this.form.valid) {
-      this.usuario.nameUser=this.form.value.nombres;
-      this.usuario.fatherSurname = this.form.value.apellidoPaterno;
-      this.usuario.motherSurname = this.form.value.apellidoMaterno;
-      this.usuario.birthDate = this.form.value.nacimiento;
-      this.usuario.email = this.form.value.correo;
-      this.usuario.password = this.form.value.contrasenia;
-      this.usuario.profileLinkedIn = this.form.value.linkedin;
-      this.usuario.registrationDate = new Date(Date.now());
-      this.usuario.configuration = new Configuration();
-      this.usuario.university.idUniversity = this.form.value.universidad;
-      this.usuario.username = this.form.value.nombres+this.form.value.apellidoPaterno+this.form.value.apellidoMaterno;
-      this.usuario.enabled = true;
+
+    this.config.language = "Spanish";
+    this.config.notifications = true;
+
+    this.cS.insert(this.config).subscribe(() => {
+      this.cS.list().subscribe(data => {
+        this.cS.setList(data);
+      })
+    });
+
+    this.cS.list().subscribe((data) => {
+      this.dataSource2 = new MatTableDataSource(data);
+      if (this.form.valid) {
+        this.usuario.nameUser = this.form.value.nombres;
+        this.usuario.fatherSurname = this.form.value.apellidoPaterno;
+        this.usuario.motherSurname = this.form.value.apellidoMaterno;
+        this.usuario.birthDate = this.form.value.nacimiento;
+        this.usuario.email = this.form.value.correo;
+        this.usuario.password = this.form.value.contrasenia;
+        this.usuario.profileLinkedIn = this.form.value.linkedin;
+        this.usuario.registrationDate = new Date(Date.now());
+        this.usuario.configuration.idConfiguration = +this.dataSource2.data.length;
+        this.usuario.university.idUniversity = this.form.value.universidad;
+        this.usuario.username = this.form.value.nombres + this.form.value.apellidoPaterno + this.form.value.apellidoMaterno;
+        this.usuario.enabled = true;
+
+        this.uS.insert(this.usuario).subscribe(() => {
+          this.uS.list().subscribe(data => {
+            this.uS.setList(data);
+          })
+        });
+
+        console.log(this.usuario);
+        sessionStorage.clear();
+
+      } else {
+        this.mensaje = 'Revise los campos!!!';
+      }
+
+    });
 
 
-      this.uS.insert(this.usuario).subscribe(()=>{
-        this.uS.list().subscribe(data=>{
-          this.uS.setList(data);
-        })
-      });
-    this.router.navigate(['login']);
 
-    } else {
-      this.mensaje = 'Revise los campos!!!';
-    }
+
   }
 
   obtenerControlCampo(nombreCampo: string): AbstractControl {

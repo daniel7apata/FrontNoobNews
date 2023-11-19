@@ -2,44 +2,45 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
 
 </head>
-<body style="background-color: #8A0101; margin: 0;padding: 0;display: flex;justify-content: center;align-items: center;height: 100vh; min-height: 625px; min-width: 165px ">
-    <div id= "solorelleno" style="height: 40px;"></div>
-    <div class="container" style="background-color: white; width:500px; border-radius: 20px; height: 590px;padding-bottom: 50px; padding-top: 3%; box-shadow: 10px 10px 20px black;">
 
-        <br>
-        <img src="https://i.ibb.co/yF695hk/imagotipo-horizontal-negro.png" style="width: 90%;">
-        <br><br>
-        <div id="alineadosAlCentro" style="text-align: center">
-        <h2 style="font-family:'Georgia'; font-size: 25px; color:black">INICIO DE SESIÓN</h2>
-        
-        <mat-form-field class="example-full-width">
-            <mat-label>Usuario</mat-label>
-            <input matInput placeholder="Username" [(ngModel)]="username" />
-          </mat-form-field>
-          <br />
-          <mat-form-field class="example-full-width">
-            <mat-label>Password</mat-label>
-            <input
-              type="password"
-              matInput
-              placeholder="Password"
-              [(ngModel)]="password"
-            />
-          </mat-form-field>
-          <br />
-          <button mat-raised-button color="primary" (click)="login()">Ingresar</button>
+<body
+  style="background-color: #8A0101; margin: 0;padding: 0;display: flex;justify-content: center;align-items: center;height: 100vh; min-height: 625px; min-width: 165px ">
+  <div id="solorelleno" style="height: 40px;"></div>
+  <div class="container"
+    style="background-color: white; width:500px; border-radius: 20px; height: 590px;padding-bottom: 50px; padding-top: 3%; box-shadow: 10px 10px 20px black;">
 
-            <br>
-            <p>{{ mensaje }}</p>
-     
+    <br>
+    <img src="https://i.ibb.co/yF695hk/imagotipo-horizontal-negro.png" style="width: 90%;">
+    <br><br>
+    <div id="alineadosAlCentro" style="text-align: center">
+      <h2 style="font-family:'Georgia'; font-size: 25px; color:black">INICIO DE SESIÓN</h2>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Usuario</mat-label>
+        <input matInput placeholder="Username" [(ngModel)]="username" />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput placeholder="Password" [(ngModel)]="password" />
+      </mat-form-field>
+      <br />
+      <button mat-raised-button color="warn" (click)="login()">INICIAR SESIÓN</button>
+      <br>
+      <br>
+      <button mat-raised-button color="warn" (click)="irRegistro()">REGISTRARSE</button>
+
+      <br>
+      <p>{{ mensaje }}</p>
+
     </div>
 
-    </div>
+  </div>
 
 
 
