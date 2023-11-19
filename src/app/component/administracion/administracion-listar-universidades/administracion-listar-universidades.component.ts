@@ -23,10 +23,12 @@ export class AdministracionListarUniversidadesComponent implements OnInit{
 
   ngOnInit(): void {
     this.unS.list().subscribe(data => {
-      this.dataSource = new MatTableDataSource(data)
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     })
     this.unS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     });
   }
 
