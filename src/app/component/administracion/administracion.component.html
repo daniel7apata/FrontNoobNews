@@ -6,6 +6,12 @@
 
 <router-outlet></router-outlet>
 <div [hidden]="route.children.length!==0">
+  <app-administracion-listar-universidades></app-administracion-listar-universidades>
+</div>
+
+
+<router-outlet></router-outlet>
+<div [hidden]="route.children.length!==0">
   <app-administracion-listar-publicacionexterna></app-administracion-listar-publicacionexterna>
 </div>
 
