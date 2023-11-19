@@ -85,6 +85,7 @@ export class UsersService {
 
   registrarSecurity(enabled:boolean, password:string, username:string) {
     let token = sessionStorage.getItem('token');
+    console.log(token);
     return this.http.post(`${this.url}/toSecurity`, 
       {
         enabled: enabled,
