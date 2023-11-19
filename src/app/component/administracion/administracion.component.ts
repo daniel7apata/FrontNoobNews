@@ -1,5 +1,7 @@
-import { OnInit } from '@angular/core';
+import { OnInit, ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { ChartType } from 'chart.js';
 import { ChartOptions, ChartDataset} from 'chart.js';
 import { University } from 'src/app/model/university';
@@ -71,6 +73,9 @@ export class AdministracionComponent implements OnInit {
 
 
 
+
+
+
   constructor(
 
     private cS:CategoryService,
@@ -137,6 +142,7 @@ export class AdministracionComponent implements OnInit {
         },
       ];
     });
+
 
 
 
