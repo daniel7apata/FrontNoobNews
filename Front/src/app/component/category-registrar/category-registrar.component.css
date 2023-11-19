@@ -1,0 +1,9 @@
+
+/* Reducir el ancho de las columnas específicas */
+.mat-column-nombre {
+    width: 50px; /* ajusta según sea necesario */
+  }
+  
+  .mat-column-descripcion {
+    width: 150px; /* ajusta según sea necesario */
+  } 
