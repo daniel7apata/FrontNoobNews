@@ -25,10 +25,12 @@ export class AdministracionListarDispositivoConectadoComponent implements OnInit
 
   ngOnInit(): void {
     this.disS.list().subscribe(data => {
-      this.dataSource = new MatTableDataSource(data)
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     })
     this.disS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     });
   }
 
