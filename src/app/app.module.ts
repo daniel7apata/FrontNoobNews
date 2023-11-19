@@ -39,6 +39,16 @@ import { RegisterComponent } from './component/register/register.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AdministracionComponent } from './component/administracion/administracion.component';
 import { NgChartsModule } from 'ng2-charts';
+import { AdministracionVerReportesComponent } from './component/administracion/administracion-ver-reportes/administracion-ver-reportes.component';
+import { AdministracionListarUniversidadesComponent } from './component/administracion/administracion-listar-universidades/administracion-listar-universidades.component';
+import { AdministracionListarPublicacionexternaComponent } from './component/administracion/administracion-listar-publicacionexterna/administracion-listar-publicacionexterna.component';
+import { AdministracionListarConfiguracionComponent } from './component/administracion/administracion-listar-configuracion/administracion-listar-configuracion.component';
+import { AdministracionListarCategoriaComponent } from './component/administracion/administracion-listar-categoria/administracion-listar-categoria.component';
+import { AdministracionListarReconocimientoComponent } from './component/administracion/administracion-listar-reconocimiento/administracion-listar-reconocimiento.component';
+import { AdministracionListarDispositivoConectadoComponent } from './component/administracion/administracion-listar-dispositivo-conectado/administracion-listar-dispositivo-conectado.component';
+import { AdministracionListarInteraccionesComponent } from './component/administracion/administracion-listar-interacciones/administracion-listar-interacciones.component';
+import { AdministracionListarLogicRolComponent } from './component/administracion/administracion-listar-logic-rol/administracion-listar-logic-rol.component';
+
 
 
 @NgModule({
@@ -55,6 +65,19 @@ import { NgChartsModule } from 'ng2-charts';
     SearchComponent,
     RegisterComponent,
     AdministracionComponent,
+    AdministracionVerReportesComponent,
+    AdministracionListarUniversidadesComponent,
+    AdministracionListarPublicacionexternaComponent,
+    AdministracionListarConfiguracionComponent,
+    AdministracionListarCategoriaComponent,
+    AdministracionListarReconocimientoComponent,
+    AdministracionListarDispositivoConectadoComponent,
+    AdministracionListarInteraccionesComponent,
+    AdministracionListarLogicRolComponent,
+    
+    
+   
+   
   ],
   imports: [
     BrowserModule,
