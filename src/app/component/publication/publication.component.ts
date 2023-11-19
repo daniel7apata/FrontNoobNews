@@ -20,6 +20,7 @@ import { ViewChild } from '@angular/core';
 import { InteractionService } from 'src/app/service/interaction.service';
 import { UsersService } from 'src/app/service/users.service';
 import { LoginService } from 'src/app/service/login.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-publication',
@@ -54,6 +55,8 @@ export class PublicationComponent implements OnInit{
   
   autorComentario:string="";
 
+  contadorLikes:number=0;
+
   interaccion: Interaction = new Interaction();
 
 
@@ -72,6 +75,7 @@ export class PublicationComponent implements OnInit{
     private interaS: InteractionService,
     private uS: UsersService,
     private loginService: LoginService,
+    private location: Location
   ) {}
   
   ngOnInit(): void {
@@ -151,6 +155,22 @@ export class PublicationComponent implements OnInit{
     });
   }
 
+  darLike(): void {
+
+    /*
+    this.interaS.list().subscribe(interactions => {
+      const interactionsWithCondition = interactions.filter(interaction => interaction.publication.idPublication === this.id && interaction.liked === true);
+      this.contadorLikes = interactionsWithCondition.length;
+    });
+
+    this.interaS.getList().subscribe(interactions => {
+      const interactionsWithCondition = interactions.filter(interaction => interaction.publication.idPublication === this.id && interaction.liked === true);
+      this.contadorLikes = interactionsWithCondition.length;
+    });
+    */
+
+    this.contadorLikes = this.contadorLikes + 1;
+  }
 
   
   init() {
@@ -169,6 +189,10 @@ export class PublicationComponent implements OnInit{
       });
     }
    
+  }
+
+  getCurrentUrl() {
+    alert(this.location.path());
   }
 
   obtenerControlCampo(nombreCampo: string): AbstractControl {
