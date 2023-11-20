@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .grafico {
+      width: 60vw;
+      height: auto;
+      border: solid 2px black;
+      padding-top: 30px;
+      padding-bottom: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      margin-left: 20px;
+      background-color: #4D0000;
+      color: white;
+    }
+
+
+    #todotodito {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: row;
+    }
+
+    @media (max-width: 500px) {
+      #todotodito {
+        width: 100vw;
+        height: auto;
+        padding-left: 1000px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <div style="position:fixed; width: 100%; top: 0%; z-index: 2"><app-latoolbar></app-latoolbar></div>
+
+  <h1 style="text-align: center; margin-top: 120px;position:relative; width: 100%; top: 0%; font-size: 50px; font-family: Georgia;">REPORTES</h1>
+
+  <div id="todotodito">
+
+
+    <div id="publicacionesPorCategoria" class="grafico">
+      <h2>Cantidad de publicaciones por Categoría</h2>
+      <canvas baseChart [datasets]="barChartData1" [labels]="barChartLabels1" [options]="barChartOptions1"
+        [legend]="barChartLegend1" [type]="barChartType1">
+      </canvas>
+    </div>
+
+
+    <div id="publicacionesPorCategoria" class="grafico">
+      <h2>Cantidad de Usuarios por Rol</h2>
+      <canvas baseChart [datasets]="barChartData2" [labels]="barChartLabels2" [options]="barChartOptions2"
+        [legend]="barChartLegend2" [type]="barChartType2">
+      </canvas>
+    </div>
+
+
+    <div id="interaccionesPorUsuario" class="grafico">
+      <h2>Cantidad de Interacciones por Usuario</h2>
+      <canvas baseChart [datasets]="barChartData3" [labels]="barChartLabels3" [options]="barChartOptions3"
+        [legend]="barChartLegend3" [type]="barChartType3">
+      </canvas>
+    </div>
+
+    <div id="interaccionesPorPublicacion" class="grafico">
+      <h2>Cantidad de Interacciones por Publicación</h2>
+      <canvas baseChart [datasets]="barChartData4" [labels]="barChartLabels4" [options]="barChartOptions4"
+        [legend]="barChartLegend4" [type]="barChartType4">
+      </canvas>
+    </div>
+
+
+    <div id="usuariosPorUniversidad" class="grafico">
+      <h2>Cantidad de Usuarios por Universidad</h2>
+      <canvas baseChart [datasets]="barChartData5" [labels]="barChartLabels5" [options]="barChartOptions5"
+        [legend]="barChartLegend5" [type]="barChartType5">
+      </canvas>
+    </div>
+
+    <div id="soloRelleno" style="width: 30px; height: 10px;"></div>
+
+
+
+
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <h2 style="text-align: center">Lista de Reconocimientos</h2>
+      <div style="text-align: right;">       
+      </div>
+      <mat-form-field>
+        <input matInput (keyup)=filter($event) placeholder="buscar"/>
+      </mat-form-field>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="codigo">
+          <th mat-header-cell *matHeaderCellDef>No.</th>
+          <td mat-cell *matCellDef="let element">{{ element.idAcknowledgment}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>Descripcion</th>
+          <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+        </ng-container>   
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="fecha">
+                <th mat-header-cell *matHeaderCellDef>fecha</th>
+                <td mat-cell *matCellDef="let element">{{ element.dateAcknowledgment }}</td>
+              </ng-container>  
+
+                <!-- Name Column -->
+            <ng-container matColumnDef="logics">
+                <th mat-header-cell *matHeaderCellDef>Logics</th>
+                <td mat-cell *matCellDef="let element">{{ element.logicUser.id }}</td>
+              </ng-container>  
+        
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        showFirstLastButtons
+      ></mat-paginator>
+    </div>
+  </body>
+</html>

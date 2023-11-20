@@ -17,7 +17,7 @@ import { UniversityService } from 'src/app/service/university.service';
 import { UsersService } from 'src/app/service/users.service';
 import { ConfigurationService } from 'src/app/service/configuration.service';
 import { MatPaginator } from '@angular/material/paginator';
-import * as CryptoJS from 'crypto-js';
+//import * as CryptoJS from 'crypto-js';
 
 
 @Component({
@@ -119,10 +119,11 @@ export class RegisterComponent implements OnInit {
           })
         });
 
-
+        /*
         let passwordPlainText = this.form.value.contrasenia;
         let passwordHash = CryptoJS.SHA256(passwordPlainText).toString();
         this.usuario.password = passwordHash;
+        */
 
         console.log(this.usuario.password);
 
